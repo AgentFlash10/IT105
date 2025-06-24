@@ -1,20 +1,83 @@
 <!DOCTYPE html>
+<!-- 
+    DOCTYPE Declaration: Tells the browser this is an HTML5 document.
+    This is required for proper rendering and validation.
+-->
 <html lang="en">
+<!-- 
+    HTML Root Element: The root element of an HTML page.
+    lang="en" specifies that the document is in English for accessibility and SEO.
+-->
 <head>
+    <!-- 
+        Head Section: Contains metadata about the document that is not displayed on the page.
+        This includes character encoding, viewport settings, meta tags, and the title.
+    -->
     <meta charset="UTF-8">
+    <!-- 
+        Character Encoding: UTF-8 supports all Unicode characters including special symbols and emojis.
+        This should always be the first meta tag in the head section.
+    -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 
+        Viewport Meta Tag: Controls how the page is displayed on mobile devices.
+        width=device-width makes the page width match the device width.
+        initial-scale=1.0 sets the initial zoom level.
+    -->
     <meta name="description" content="HTML5 Elements Demonstration">
+    <!-- 
+        Description Meta Tag: Provides a brief description of the page for search engines.
+        This appears in search results and social media shares.
+    -->
     <meta name="keywords" content="HTML5, elements, demonstration">
+    <!-- 
+        Keywords Meta Tag: Lists keywords related to the page content.
+        Note: Modern search engines don't heavily rely on this tag anymore.
+    -->
     <meta name="author" content="Your Name">
+    <!-- 
+        Author Meta Tag: Specifies the author of the document.
+        Useful for documentation and attribution.
+    -->
     <title>HTML5 Elements Demonstration</title>
+    <!-- 
+        Title Tag: Sets the page title that appears in browser tabs, bookmarks, and search results.
+        Should be descriptive and under 60 characters for optimal display.
+    -->
 </head>
 <body>
+    <!-- 
+        Body Element: Contains all the visible content of the webpage.
+        This is where all the text, images, forms, and other content goes.
+    -->
+    
     <!-- Header Section -->
     <header>
+        <!-- 
+            Header Element: Represents the introductory content of a section or page.
+            Typically contains navigation, logos, and introductory content.
+        -->
         <h1>HTML5 Elements Demonstration</h1>
+        <!-- 
+            H1 Element: The main heading of the page. There should typically be only one H1 per page.
+            Important for SEO and document structure.
+        -->
         <nav>
+            <!-- 
+                Navigation Element: Represents a section of navigation links.
+                Screen readers use this to identify navigation areas.
+            -->
             <ul>
+                <!-- 
+                    Unordered List: Creates a bulleted list of items.
+                    Used here for navigation menu items.
+                -->
                 <li><a href="#text-elements">Text Elements</a></li>
+                <!-- 
+                    List Item: Represents an item in a list.
+                    Anchor Tag: Creates a hyperlink to another page or section.
+                    href="#text-elements" creates a link to an element with id="text-elements".
+                -->
                 <li><a href="#lists">Lists</a></li>
                 <li><a href="#tables">Tables</a></li>
                 <li><a href="#forms">Forms</a></li>
@@ -26,40 +89,101 @@
 
     <!-- Main Content -->
     <main>
+        <!-- 
+            Main Element: Represents the main content of the document.
+            There should be only one main element per page.
+            Screen readers use this to identify the primary content area.
+        -->
+        
         <!-- Text Elements Section -->
         <section id="text-elements">
+            <!-- 
+                Section Element: Represents a standalone section of content.
+                id="text-elements" creates a target for navigation links.
+            -->
             <h2>Text Elements</h2>
+            <!-- 
+                H2 Element: Secondary heading, used for major sections.
+                Creates a clear hierarchy in the document structure.
+            -->
             
             <h1>Heading 1 - Main Title</h1>
             <h2>Heading 2 - Section Title</h2>
             <h3>Heading 3 - Subsection Title</h3>
+            <!-- 
+                H3-H6 Elements: Lower-level headings for subsections.
+                Creates a logical document outline for screen readers and SEO.
+            -->
             <h4>Heading 4 - Minor Section</h4>
             <h5>Heading 5 - Small Section</h5>
             <h6>Heading 6 - Smallest Section</h6>
 
             <p>This is a regular paragraph with <strong>bold text</strong>, <em>italic text</em>, and <u>underlined text</u>.</p>
+            <!-- 
+                Paragraph Element: Represents a paragraph of text.
+                Strong Element: Indicates strong importance, seriousness, or urgency (bold by default).
+                Em Element: Indicates emphasis (italic by default).
+                U Element: Represents text that should be underlined (use sparingly).
+            -->
             
             <p>Here's some <mark>highlighted text</mark> and <del>deleted text</del> with <ins>inserted text</ins>.</p>
+            <!-- 
+                Mark Element: Represents text that is highlighted for reference purposes.
+                Del Element: Represents deleted text (strikethrough by default).
+                Ins Element: Represents inserted text (underlined by default).
+            -->
             
             <p>Subscript: H<sub>2</sub>O and Superscript: E = mc<sup>2</sup></p>
+            <!-- 
+                Sub Element: Represents subscript text (lower and smaller).
+                Sup Element: Represents superscript text (higher and smaller).
+            -->
             
             <blockquote>
+                <!-- 
+                    Blockquote Element: Represents a section quoted from another source.
+                    Used for longer quotations that are set apart from the main text.
+                -->
                 This is a blockquote. It's used for longer quotations that are set apart from the main text.
                 <cite>- Famous Person</cite>
+                <!-- 
+                    Cite Element: Represents the title of a creative work or the author of a quote.
+                -->
             </blockquote>
 
             <p>Here's some <code>inline code</code> and a <kbd>keyboard input</kbd> example.</p>
+            <!-- 
+                Code Element: Represents a fragment of computer code.
+                Kbd Element: Represents user input from a keyboard.
+            -->
 
             <pre>
+<!-- 
+    Pre Element: Represents preformatted text.
+    Preserves both spaces and line breaks exactly as written.
+    Commonly used for code examples or ASCII art.
+-->
 This is preformatted text.
 It preserves both spaces and line breaks.
     Perfect for code examples.
             </pre>
 
             <p>Here's a <abbr title="HyperText Markup Language">HTML</abbr> abbreviation.</p>
+            <!-- 
+                Abbr Element: Represents an abbreviation or acronym.
+                title attribute provides the full form when hovered.
+            -->
 
             <address>
+                <!-- 
+                    Address Element: Represents contact information for the nearest article or body element.
+                    Should not be used for arbitrary addresses.
+                -->
                 Contact: <a href="mailto:example@email.com">example@email.com</a><br>
+                <!-- 
+                    Mailto Link: Opens the user's default email client with a new message.
+                    Tel Link: Opens the user's phone app or dialer.
+                -->
                 Phone: <a href="tel:+1234567890">+1 (234) 567-890</a>
             </address>
         </section>
@@ -70,10 +194,18 @@ It preserves both spaces and line breaks.
             
             <h3>Unordered List</h3>
             <ul>
+                <!-- 
+                    Unordered List: Creates a bulleted list where order doesn't matter.
+                    Each item is marked with a bullet point.
+                -->
                 <li>First item</li>
                 <li>Second item</li>
                 <li>Third item with nested list:
                     <ul>
+                        <!-- 
+                            Nested List: Lists can contain other lists.
+                            Creates a hierarchical structure.
+                        -->
                         <li>Nested item 1</li>
                         <li>Nested item 2</li>
                     </ul>
@@ -82,6 +214,10 @@ It preserves both spaces and line breaks.
 
             <h3>Ordered List</h3>
             <ol>
+                <!-- 
+                    Ordered List: Creates a numbered list where order matters.
+                    Each item is automatically numbered.
+                -->
                 <li>First step</li>
                 <li>Second step</li>
                 <li>Third step</li>
@@ -89,8 +225,18 @@ It preserves both spaces and line breaks.
 
             <h3>Definition List</h3>
             <dl>
+                <!-- 
+                    Definition List: Creates a list of terms and their definitions.
+                    Used for glossaries, metadata, and key-value pairs.
+                -->
                 <dt>HTML</dt>
+                <!-- 
+                    Definition Term: Represents the term being defined.
+                -->
                 <dd>HyperText Markup Language - the standard markup language for documents designed to be displayed in a web browser.</dd>
+                <!-- 
+                    Definition Description: Represents the definition of the term.
+                -->
                 <dt>CSS</dt>
                 <dd>Cascading Style Sheets - a style sheet language used for describing the presentation of a document written in HTML.</dd>
             </dl>
@@ -101,17 +247,44 @@ It preserves both spaces and line breaks.
             <h2>Tables</h2>
             
             <table border="1">
+                <!-- 
+                    Table Element: Represents tabular data.
+                    border="1" adds a visible border (CSS is preferred for styling).
+                -->
                 <caption>Sample Data Table</caption>
+                <!-- 
+                    Caption Element: Provides a title or description for the table.
+                    Should be the first child of the table element.
+                -->
                 <thead>
+                    <!-- 
+                        Table Head: Groups header content in a table.
+                        Contains column headers and is semantically distinct from body.
+                    -->
                     <tr>
+                        <!-- 
+                            Table Row: Represents a row of cells in a table.
+                        -->
                         <th>Name</th>
+                        <!-- 
+                            Table Header: Represents a header cell in a table.
+                            Bold by default and indicates column/row headers.
+                        -->
                         <th>Age</th>
                         <th>City</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- 
+                        Table Body: Groups the main content of a table.
+                        Contains the data rows.
+                    -->
                     <tr>
                         <td>John Doe</td>
+                        <!-- 
+                            Table Data: Represents a data cell in a table.
+                            Contains the actual data values.
+                        -->
                         <td>25</td>
                         <td>New York</td>
                     </tr>
@@ -127,8 +300,16 @@ It preserves both spaces and line breaks.
                     </tr>
                 </tbody>
                 <tfoot>
+                    <!-- 
+                        Table Foot: Groups footer content in a table.
+                        Often contains totals or summary information.
+                    -->
                     <tr>
                         <td colspan="3">Total: 3 people</td>
+                        <!-- 
+                            Colspan Attribute: Makes a cell span multiple columns.
+                            colspan="3" makes this cell span all 3 columns.
+                        -->
                     </tr>
                 </tfoot>
             </table>
@@ -139,55 +320,128 @@ It preserves both spaces and line breaks.
             <h2>Forms</h2>
             
             <form action="#" method="post">
+                <!-- 
+                    Form Element: Represents a document section containing interactive controls.
+                    action="#" submits to the same page, method="post" sends data via POST request.
+                -->
                 <fieldset>
+                    <!-- 
+                        Fieldset Element: Groups related form controls together.
+                        Creates a visual and semantic grouping.
+                    -->
                     <legend>Personal Information</legend>
+                    <!-- 
+                        Legend Element: Provides a caption for a fieldset.
+                        Describes what the grouped controls are for.
+                    -->
                     
                     <label for="name">Name:</label>
+                    <!-- 
+                        Label Element: Represents a caption for a form control.
+                        for="name" associates this label with the input with id="name".
+                        Improves accessibility and usability.
+                    -->
                     <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    <!-- 
+                        Input Element: Creates interactive controls for forms.
+                        type="text": Single-line text input.
+                        id="name": Unique identifier for the element.
+                        name="name": Name of the form control when submitted.
+                        placeholder: Hint text shown when input is empty.
+                        required: Makes the field mandatory before form submission.
+                    -->
                     <br><br>
+                    <!-- 
+                        Line Break: Creates a line break in text.
+                        Used here for spacing (CSS is preferred for layout).
+                    -->
                     
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <!-- 
+                        type="email": Email input with built-in validation.
+                        Browsers will check for valid email format.
+                    -->
                     <br><br>
                     
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" placeholder="Enter password">
+                    <!-- 
+                        type="password": Masks the input for security.
+                        Characters are hidden with dots or asterisks.
+                    -->
                     <br><br>
                     
                     <label for="age">Age:</label>
                     <input type="number" id="age" name="age" min="0" max="120">
+                    <!-- 
+                        type="number": Numeric input with optional min/max constraints.
+                        May show spinner controls in some browsers.
+                    -->
                     <br><br>
                     
                     <label for="birthdate">Birth Date:</label>
                     <input type="date" id="birthdate" name="birthdate">
+                    <!-- 
+                        type="date": Date picker input.
+                        Shows a calendar interface in modern browsers.
+                    -->
                     <br><br>
                     
                     <label for="time">Time:</label>
                     <input type="time" id="time" name="time">
+                    <!-- 
+                        type="time": Time picker input.
+                        Shows time selection interface.
+                    -->
                     <br><br>
                     
                     <label for="color">Favorite Color:</label>
                     <input type="color" id="color" name="color">
+                    <!-- 
+                        type="color": Color picker input.
+                        Shows a color selection interface.
+                    -->
                     <br><br>
                     
                     <label for="range">Rating (1-10):</label>
                     <input type="range" id="range" name="range" min="1" max="10" value="5">
+                    <!-- 
+                        type="range": Slider input for selecting a value within a range.
+                        value="5" sets the default/initial value.
+                    -->
                     <br><br>
                     
                     <label for="file">Upload File:</label>
                     <input type="file" id="file" name="file">
+                    <!-- 
+                        type="file": File upload input.
+                        Opens file selection dialog.
+                    -->
                     <br><br>
                     
                     <label for="url">Website:</label>
                     <input type="url" id="url" name="url" placeholder="https://example.com">
+                    <!-- 
+                        type="url": URL input with built-in validation.
+                        Checks for valid URL format.
+                    -->
                     <br><br>
                     
                     <label for="tel">Phone:</label>
                     <input type="tel" id="tel" name="tel" placeholder="+1-234-567-8900">
+                    <!-- 
+                        type="tel": Telephone number input.
+                        May show numeric keyboard on mobile devices.
+                    -->
                     <br><br>
                     
                     <label for="search">Search:</label>
                     <input type="search" id="search" name="search" placeholder="Search...">
+                    <!-- 
+                        type="search": Search input.
+                        May have special styling or behavior in some browsers.
+                    -->
                     <br><br>
                     
                     <label>Gender:</label>
@@ -197,6 +451,11 @@ It preserves both spaces and line breaks.
                     <label for="female">Female</label>
                     <input type="radio" id="other" name="gender" value="other">
                     <label for="other">Other</label>
+                    <!-- 
+                        type="radio": Radio button input.
+                        name="gender" groups the buttons together (only one can be selected).
+                        value specifies the data sent when form is submitted.
+                    -->
                     <br><br>
                     
                     <label>Interests:</label>
@@ -206,11 +465,24 @@ It preserves both spaces and line breaks.
                     <label for="music">Music</label>
                     <input type="checkbox" id="reading" name="interests" value="reading">
                     <label for="reading">Reading</label>
+                    <!-- 
+                        type="checkbox": Checkbox input.
+                        Multiple checkboxes can be selected.
+                        Each has its own value sent when checked.
+                    -->
                     <br><br>
                     
                     <label for="country">Country:</label>
                     <select id="country" name="country">
+                        <!-- 
+                            Select Element: Creates a dropdown list.
+                            Allows users to choose from predefined options.
+                        -->
                         <option value="">Select a country</option>
+                        <!-- 
+                            Option Element: Represents an option in a select element.
+                            value="" creates an empty option for placeholder.
+                        -->
                         <option value="us">United States</option>
                         <option value="ca">Canada</option>
                         <option value="uk">United Kingdom</option>
@@ -220,11 +492,27 @@ It preserves both spaces and line breaks.
                     
                     <label for="message">Message:</label>
                     <textarea id="message" name="message" rows="4" cols="50" placeholder="Enter your message here..."></textarea>
+                    <!-- 
+                        Textarea Element: Multi-line text input.
+                        rows="4" cols="50" sets the visible size.
+                        Resizable by default in most browsers.
+                    -->
                     <br><br>
                     
                     <button type="submit">Submit</button>
+                    <!-- 
+                        Button Element: Interactive button.
+                        type="submit": Submits the form data.
+                    -->
                     <button type="reset">Reset</button>
+                    <!-- 
+                        type="reset": Clears all form fields to their default values.
+                    -->
                     <button type="button">Regular Button</button>
+                    <!-- 
+                        type="button": Regular button with no default behavior.
+                        Requires JavaScript for functionality.
+                    -->
                 </fieldset>
             </form>
         </section>
@@ -235,22 +523,52 @@ It preserves both spaces and line breaks.
             
             <h3>Images</h3>
             <img src="https://via.placeholder.com/300x200" alt="Placeholder image" width="300" height="200">
+            <!-- 
+                Image Element: Embeds an image in the document.
+                src: URL of the image file.
+                alt: Alternative text for accessibility and when image fails to load.
+                width/height: Dimensions of the image (CSS is preferred for styling).
+            -->
             
             <h3>Figure with Caption</h3>
             <figure>
+                <!-- 
+                    Figure Element: Represents self-contained content like images, diagrams, etc.
+                    Can contain a figcaption for description.
+                -->
                 <img src="https://via.placeholder.com/400x300" alt="Figure image" width="400" height="300">
                 <figcaption>This is a figure caption describing the image above.</figcaption>
+                <!-- 
+                    Figcaption Element: Represents a caption or legend for a figure.
+                    Can be placed before or after the figure content.
+                -->
             </figure>
             
             <h3>Audio</h3>
             <audio controls>
+                <!-- 
+                    Audio Element: Embeds sound content in the document.
+                    controls: Shows audio player controls (play, pause, volume, etc.).
+                -->
                 <source src="sample-audio.mp3" type="audio/mpeg">
+                <!-- 
+                    Source Element: Specifies media sources for audio/video elements.
+                    type: MIME type of the media file.
+                    Multiple sources allow fallback for different formats.
+                -->
                 <source src="sample-audio.ogg" type="audio/ogg">
                 Your browser does not support the audio element.
+                <!-- 
+                    Fallback text: Displayed if the browser doesn't support the audio element.
+                -->
             </audio>
             
             <h3>Video</h3>
             <video width="400" height="300" controls>
+                <!-- 
+                    Video Element: Embeds video content in the document.
+                    Similar to audio but for video files.
+                -->
                 <source src="sample-video.mp4" type="video/mp4">
                 <source src="sample-video.webm" type="video/webm">
                 Your browser does not support the video element.
@@ -258,6 +576,12 @@ It preserves both spaces and line breaks.
             
             <h3>Embedded Content</h3>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.30591910525!2d-74.25986532929688!3d40.69714941978941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1640995200000!5m2!1sen!2s" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <!-- 
+                Iframe Element: Embeds another HTML page within the current page.
+                src: URL of the page to embed.
+                allowfullscreen: Allows the embedded content to go fullscreen.
+                loading="lazy": Defers loading until the iframe is near the viewport.
+            -->
         </section>
 
         <!-- Semantic Elements Section -->
@@ -265,27 +589,63 @@ It preserves both spaces and line breaks.
             <h2>Semantic Elements</h2>
             
             <article>
+                <!-- 
+                    Article Element: Represents a self-contained composition.
+                    Could be a blog post, news article, comment, etc.
+                    Should make sense on its own.
+                -->
                 <h3>Article Title</h3>
                 <p>This is an article element. It represents a self-contained composition in a document, page, application, or site.</p>
                 <footer>
+                    <!-- 
+                        Footer Element: Represents the footer of a section or page.
+                        Contains metadata, copyright info, links, etc.
+                    -->
                     <p>Article footer - Published on <time datetime="2024-01-15">January 15, 2024</time></p>
+                    <!-- 
+                        Time Element: Represents a specific period in time.
+                        datetime: Machine-readable date/time format.
+                        Content: Human-readable date/time format.
+                    -->
                 </footer>
             </article>
             
             <aside>
+                <!-- 
+                    Aside Element: Represents content that is tangentially related.
+                    Sidebars, pull quotes, advertising, etc.
+                    Can be removed without affecting the main content.
+                -->
                 <h3>Sidebar Content</h3>
                 <p>This is an aside element. It represents a section of a page that consists of content that is tangentially related to the content around it.</p>
             </aside>
             
             <details>
+                <!-- 
+                    Details Element: Creates a disclosure widget.
+                    Content is hidden by default and can be toggled open/closed.
+                -->
                 <summary>Click to expand details</summary>
+                <!-- 
+                    Summary Element: Provides a summary or legend for a details element.
+                    Acts as the clickable label for the disclosure widget.
+                -->
                 <p>This is a details element. It creates a disclosure widget in which information is visible only when the widget is toggled into an "open" state.</p>
             </details>
             
             <dialog open>
+                <!-- 
+                    Dialog Element: Represents a dialog box or interactive component.
+                    open: Makes the dialog visible by default.
+                    Usually controlled with JavaScript.
+                -->
                 <h3>Dialog Title</h3>
                 <p>This is a dialog element. It represents a dialog box or other interactive component.</p>
                 <button onclick="this.parentElement.close()">Close</button>
+                <!-- 
+                    onclick: JavaScript event handler.
+                    this.parentElement.close() closes the dialog.
+                -->
             </dialog>
         </section>
 
@@ -299,16 +659,36 @@ It preserves both spaces and line breaks.
             </details>
             
             <meter value="0.6" min="0" max="1">60%</meter>
+            <!-- 
+                Meter Element: Represents a scalar measurement within a known range.
+                value: Current value (0.6 = 60%).
+                min/max: Range boundaries.
+                Content: Fallback text for older browsers.
+            -->
             <p>Progress meter showing 60%</p>
             
             <progress value="70" max="100">70%</progress>
+            <!-- 
+                Progress Element: Represents the completion progress of a task.
+                value: Current progress value.
+                max: Maximum value (100 = 100%).
+                Content: Fallback text for older browsers.
+            -->
             <p>Progress bar showing 70%</p>
         </section>
     </main>
 
     <!-- Footer -->
     <footer>
+        <!-- 
+            Footer Element: Represents the footer of a document or section.
+            Contains metadata, copyright information, contact details, etc.
+        -->
         <p>&copy; 2024 HTML5 Demonstration. All rights reserved.</p>
+        <!-- 
+            &copy;: HTML entity for the copyright symbol (©).
+            Entities start with & and end with ;.
+        -->
         <p>This page demonstrates various HTML5 elements without CSS styling.</p>
     </footer>
 </body>
