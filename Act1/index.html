@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HTML5 Elements Demonstration">
+    <meta name="keywords" content="HTML5, elements, demonstration">
+    <meta name="author" content="Your Name">
+    <title>HTML5 Elements Demonstration</title>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>HTML5 Elements Demonstration</h1>
+        <nav>
+            <ul>
+                <li><a href="#text-elements">Text Elements</a></li>
+                <li><a href="#lists">Lists</a></li>
+                <li><a href="#tables">Tables</a></li>
+                <li><a href="#forms">Forms</a></li>
+                <li><a href="#media">Media</a></li>
+                <li><a href="#semantic">Semantic Elements</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Text Elements Section -->
+        <section id="text-elements">
+            <h2>Text Elements</h2>
+            
+            <h1>Heading 1 - Main Title</h1>
+            <h2>Heading 2 - Section Title</h2>
+            <h3>Heading 3 - Subsection Title</h3>
+            <h4>Heading 4 - Minor Section</h4>
+            <h5>Heading 5 - Small Section</h5>
+            <h6>Heading 6 - Smallest Section</h6>
+
+            <p>This is a regular paragraph with <strong>bold text</strong>, <em>italic text</em>, and <u>underlined text</u>.</p>
+            
+            <p>Here's some <mark>highlighted text</mark> and <del>deleted text</del> with <ins>inserted text</ins>.</p>
+            
+            <p>Subscript: H<sub>2</sub>O and Superscript: E = mc<sup>2</sup></p>
+            
+            <blockquote>
+                This is a blockquote. It's used for longer quotations that are set apart from the main text.
+                <cite>- Famous Person</cite>
+            </blockquote>
+
+            <p>Here's some <code>inline code</code> and a <kbd>keyboard input</kbd> example.</p>
+
+            <pre>
+This is preformatted text.
+It preserves both spaces and line breaks.
+    Perfect for code examples.
+            </pre>
+
+            <p>Here's a <abbr title="HyperText Markup Language">HTML</abbr> abbreviation.</p>
+
+            <address>
+                Contact: <a href="mailto:example@email.com">example@email.com</a><br>
+                Phone: <a href="tel:+1234567890">+1 (234) 567-890</a>
+            </address>
+        </section>
+
+        <!-- Lists Section -->
+        <section id="lists">
+            <h2>Lists</h2>
+            
+            <h3>Unordered List</h3>
+            <ul>
+                <li>First item</li>
+                <li>Second item</li>
+                <li>Third item with nested list:
+                    <ul>
+                        <li>Nested item 1</li>
+                        <li>Nested item 2</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Ordered List</h3>
+            <ol>
+                <li>First step</li>
+                <li>Second step</li>
+                <li>Third step</li>
+            </ol>
+
+            <h3>Definition List</h3>
+            <dl>
+                <dt>HTML</dt>
+                <dd>HyperText Markup Language - the standard markup language for documents designed to be displayed in a web browser.</dd>
+                <dt>CSS</dt>
+                <dd>Cascading Style Sheets - a style sheet language used for describing the presentation of a document written in HTML.</dd>
+            </dl>
+        </section>
+
+        <!-- Tables Section -->
+        <section id="tables">
+            <h2>Tables</h2>
+            
+            <table border="1">
+                <caption>Sample Data Table</caption>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>City</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>25</td>
+                        <td>New York</td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>30</td>
+                        <td>Los Angeles</td>
+                    </tr>
+                    <tr>
+                        <td>Bob Johnson</td>
+                        <td>35</td>
+                        <td>Chicago</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">Total: 3 people</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <!-- Forms Section -->
+        <section id="forms">
+            <h2>Forms</h2>
+            
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    <br><br>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <br><br>
+                    
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Enter password">
+                    <br><br>
+                    
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" min="0" max="120">
+                    <br><br>
+                    
+                    <label for="birthdate">Birth Date:</label>
+                    <input type="date" id="birthdate" name="birthdate">
+                    <br><br>
+                    
+                    <label for="time">Time:</label>
+                    <input type="time" id="time" name="time">
+                    <br><br>
+                    
+                    <label for="color">Favorite Color:</label>
+                    <input type="color" id="color" name="color">
+                    <br><br>
+                    
+                    <label for="range">Rating (1-10):</label>
+                    <input type="range" id="range" name="range" min="1" max="10" value="5">
+                    <br><br>
+                    
+                    <label for="file">Upload File:</label>
+                    <input type="file" id="file" name="file">
+                    <br><br>
+                    
+                    <label for="url">Website:</label>
+                    <input type="url" id="url" name="url" placeholder="https://example.com">
+                    <br><br>
+                    
+                    <label for="tel">Phone:</label>
+                    <input type="tel" id="tel" name="tel" placeholder="+1-234-567-8900">
+                    <br><br>
+                    
+                    <label for="search">Search:</label>
+                    <input type="search" id="search" name="search" placeholder="Search...">
+                    <br><br>
+                    
+                    <label>Gender:</label>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                    <input type="radio" id="other" name="gender" value="other">
+                    <label for="other">Other</label>
+                    <br><br>
+                    
+                    <label>Interests:</label>
+                    <input type="checkbox" id="sports" name="interests" value="sports">
+                    <label for="sports">Sports</label>
+                    <input type="checkbox" id="music" name="interests" value="music">
+                    <label for="music">Music</label>
+                    <input type="checkbox" id="reading" name="interests" value="reading">
+                    <label for="reading">Reading</label>
+                    <br><br>
+                    
+                    <label for="country">Country:</label>
+                    <select id="country" name="country">
+                        <option value="">Select a country</option>
+                        <option value="us">United States</option>
+                        <option value="ca">Canada</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="au">Australia</option>
+                    </select>
+                    <br><br>
+                    
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" cols="50" placeholder="Enter your message here..."></textarea>
+                    <br><br>
+                    
+                    <button type="submit">Submit</button>
+                    <button type="reset">Reset</button>
+                    <button type="button">Regular Button</button>
+                </fieldset>
+            </form>
+        </section>
+
+        <!-- Media Section -->
+        <section id="media">
+            <h2>Media Elements</h2>
+            
+            <h3>Images</h3>
+            <img src="https://via.placeholder.com/300x200" alt="Placeholder image" width="300" height="200">
+            
+            <h3>Figure with Caption</h3>
+            <figure>
+                <img src="https://via.placeholder.com/400x300" alt="Figure image" width="400" height="300">
+                <figcaption>This is a figure caption describing the image above.</figcaption>
+            </figure>
+            
+            <h3>Audio</h3>
+            <audio controls>
+                <source src="sample-audio.mp3" type="audio/mpeg">
+                <source src="sample-audio.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>
+            
+            <h3>Video</h3>
+            <video width="400" height="300" controls>
+                <source src="sample-video.mp4" type="video/mp4">
+                <source src="sample-video.webm" type="video/webm">
+                Your browser does not support the video element.
+            </video>
+            
+            <h3>Embedded Content</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.30591910525!2d-74.25986532929688!3d40.69714941978941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1640995200000!5m2!1sen!2s" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </section>
+
+        <!-- Semantic Elements Section -->
+        <section id="semantic">
+            <h2>Semantic Elements</h2>
+            
+            <article>
+                <h3>Article Title</h3>
+                <p>This is an article element. It represents a self-contained composition in a document, page, application, or site.</p>
+                <footer>
+                    <p>Article footer - Published on <time datetime="2024-01-15">January 15, 2024</time></p>
+                </footer>
+            </article>
+            
+            <aside>
+                <h3>Sidebar Content</h3>
+                <p>This is an aside element. It represents a section of a page that consists of content that is tangentially related to the content around it.</p>
+            </aside>
+            
+            <details>
+                <summary>Click to expand details</summary>
+                <p>This is a details element. It creates a disclosure widget in which information is visible only when the widget is toggled into an "open" state.</p>
+            </details>
+            
+            <dialog open>
+                <h3>Dialog Title</h3>
+                <p>This is a dialog element. It represents a dialog box or other interactive component.</p>
+                <button onclick="this.parentElement.close()">Close</button>
+            </dialog>
+        </section>
+
+        <!-- Interactive Elements -->
+        <section>
+            <h2>Interactive Elements</h2>
+            
+            <details>
+                <summary>Collapsible Content</summary>
+                <p>This content can be expanded and collapsed using the details element.</p>
+            </details>
+            
+            <meter value="0.6" min="0" max="1">60%</meter>
+            <p>Progress meter showing 60%</p>
+            
+            <progress value="70" max="100">70%</progress>
+            <p>Progress bar showing 70%</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 HTML5 Demonstration. All rights reserved.</p>
+        <p>This page demonstrates various HTML5 elements without CSS styling.</p>
+    </footer>
+</body>
+</html>
