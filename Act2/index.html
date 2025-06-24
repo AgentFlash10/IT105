@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Basics - Simple Properties and Styling</title>
+    
+    <!-- 
+        CSS Styles: This section contains basic CSS rules that control the appearance.
+        CSS (Cascading Style Sheets) is used to style and format HTML elements.
+    -->
+    <style>
+        /* 
+            Basic CSS Reset: Removes default browser styling.
+            This ensures consistent appearance across different browsers.
+        */
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        /* 
+            Header Styling: Styles the main header section.
+            background-color: Sets the background color.
+            color: Sets the text color.
+            padding: Adds space inside the header.
+            text-align: Centers the text.
+            margin-bottom: Adds space below the header.
+        */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* 
+            H1 Styling: Styles the main heading.
+            font-size: Sets the text size.
+            margin-bottom: Adds space below the heading.
+        */
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        /* 
+            Navigation Styling: Styles the navigation menu.
+            margin-top: Adds space above the navigation.
+        */
+        nav {
+            margin-top: 15px;
+        }
+
+        /* 
+            Navigation Links: Styles the navigation links.
+            text-decoration: Removes the default underline.
+            color: Sets the link color to white.
+            padding: Adds space around the links.
+            margin: Adds space between links.
+            display: inline-block allows padding and margin to work properly.
+        */
+        nav a {
+            text-decoration: none;
+            color: white;
+            padding: 8px 16px;
+            margin: 0 5px;
+            display: inline-block;
+            background-color: #555;
+        }
+
+        /* 
+            Navigation Link Hover Effect: Styles links when the mouse hovers over them.
+            background-color: Changes the background color on hover.
+        */
+        nav a:hover {
+            background-color: #777;
+        }
+
+        /* 
+            Main Container: Styles the main content area.
+            max-width: Limits the width for better readability.
+            margin: Centers the content horizontally.
+            background-color: Sets a white background.
+            padding: Adds space around the content.
+        */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+        }
+
+        /* 
+            Section Styling: Styles each content section.
+            border: Adds a border around each section.
+            padding: Adds space inside each section.
+            margin-bottom: Adds space between sections.
+        */
+        section {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* 
+            Section Headings: Styles the section headings.
+            color: Sets the heading color.
+            border-bottom: Adds a line under the heading.
+            padding-bottom: Adds space between the heading and the line.
+        */
+        section h2 {
+            color: #333;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+
+        /* 
+            Subsection Headings: Styles smaller headings within sections.
+            color: Uses a different color for hierarchy.
+            margin: Adds space around the heading.
+        */
+        section h3 {
+            color: #666;
+            margin: 15px 0 10px 0;
+        }
+
+        /* 
+            Paragraph Styling: Styles regular paragraphs.
+            margin-bottom: Adds space between paragraphs.
+            line-height: Controls the spacing between lines.
+        */
+        p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        /* 
+            Text Formatting Examples: Demonstrates different text styling techniques.
+        */
+        .text-examples {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+        }
+
+        .bold-text { font-weight: bold; }
+        .italic-text { font-style: italic; }
+        .underline-text { text-decoration: underline; }
+        .strike-text { text-decoration: line-through; }
+        .highlight-text { background-color: yellow; }
+
+        /* 
+            Color Examples: Demonstrates different color properties.
+        */
+        .color-examples {
+            margin: 15px 0;
+        }
+
+        .color-box {
+            padding: 15px;
+            margin: 10px 0;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .red-box { background-color: red; }
+        .blue-box { background-color: blue; }
+        .green-box { background-color: green; }
+        .orange-box { background-color: orange; }
+
+        /* 
+            Box Model Examples: Demonstrates padding, margin, and border properties.
+        */
+        .box-model-demo {
+            border: 3px solid blue;
+            padding: 20px;
+            margin: 20px;
+            background-color: #e6f3ff;
+        }
+
+        .box-model-inner {
+            background-color: #ff9999;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border: 2px solid #cc0000;
+        }
+
+        /* 
+            List Styling: Demonstrates list styling.
+        */
+        .styled-list {
+            background-color: #f0f8ff;
+            padding: 15px;
+            border-left: 4px solid #0066cc;
+        }
+
+        .styled-list ul {
+            margin: 10px 0;
+        }
+
+        .styled-list li {
+            margin: 5px 0;
+            color: #333;
+        }
+
+        /* 
+            Table Styling: Demonstrates table styling.
+        */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* 
+            Button Styling: Demonstrates basic button styling.
+        */
+        .button-examples {
+            margin: 15px 0;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn-blue {
+            background-color: #0066cc;
+            color: white;
+        }
+
+        .btn-green {
+            background-color: #009900;
+            color: white;
+        }
+
+        .btn-red {
+            background-color: #cc0000;
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        /* 
+            Form Styling: Demonstrates basic form styling.
+        */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #0066cc;
+            outline: none;
+        }
+
+        /* 
+            Image Styling: Demonstrates image styling.
+        */
+        .image-example {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .image-example img {
+            border: 2px solid #ccc;
+            padding: 5px;
+        }
+
+        /* 
+            Link Styling: Demonstrates link styling.
+        */
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        a:visited {
+            color: #660099;
+        }
+
+        /* 
+            Footer Styling: Demonstrates footer styling.
+        */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        Header Section: Contains the main title and navigation.
+        Demonstrates basic header styling with background color and text alignment.
+    -->
+    <header>
+        <h1>CSS Basics</h1>
+        <p>Simple Properties and Styling</p>
+        <nav>
+            <a href="#text">Text Styling</a>
+            <a href="#colors">Colors</a>
+            <a href="#layout">Layout</a>
+            <a href="#forms">Forms</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- 
+            Text Styling Section: Demonstrates basic text formatting properties.
+        -->
+        <section id="text">
+            <h2>Text Styling</h2>
+            
+            <h3>Basic Text Properties</h3>
+            <p>This paragraph demonstrates basic text styling. The text has proper line height for readability and uses a simple font family.</p>
+            
+            <h3>Text Formatting Examples</h3>
+            <div class="text-examples">
+                <p><span class="bold-text">Bold text</span> - <span class="italic-text">Italic text</span> - <span class="underline-text">Underlined text</span></p>
+                <p><span class="strike-text">Strikethrough text</span> - <span class="highlight-text">Highlighted text</span></p>
+            </div>
+
+            <h3>Font Sizes</h3>
+            <p style="font-size: 12px;">Small text (12px)</p>
+            <p style="font-size: 16px;">Normal text (16px)</p>
+            <p style="font-size: 20px;">Large text (20px)</p>
+            <p style="font-size: 24px;">Extra large text (24px)</p>
+        </section>
+
+        <!-- 
+            Colors Section: Demonstrates basic color properties.
+        -->
+        <section id="colors">
+            <h2>Colors and Backgrounds</h2>
+            
+            <h3>Background Colors</h3>
+            <div class="color-examples">
+                <div class="color-box red-box">Red Background</div>
+                <div class="color-box blue-box">Blue Background</div>
+                <div class="color-box green-box">Green Background</div>
+                <div class="color-box orange-box">Orange Background</div>
+            </div>
+
+            <h3>Box Model Demonstration</h3>
+            <div class="box-model-demo">
+                <div class="box-model-inner">
+                    Content Area (with padding)
+                </div>
+                <p style="text-align: center; margin-top: 10px;">This demonstrates the CSS box model: content, padding, border, and margin.</p>
+            </div>
+        </section>
+
+        <!-- 
+            Layout Section: Demonstrates basic layout properties.
+        -->
+        <section id="layout">
+            <h2>Basic Layout</h2>
+            
+            <h3>Lists</h3>
+            <div class="styled-list">
+                <h4>Unordered List</h4>
+                <ul>
+                    <li>First item</li>
+                    <li>Second item</li>
+                    <li>Third item</li>
+                </ul>
+                
+                <h4>Ordered List</h4>
+                <ol>
+                    <li>First step</li>
+                    <li>Second step</li>
+                    <li>Third step</li>
+                </ol>
+            </div>
+
+            <h3>Tables</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>City</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>25</td>
+                        <td>New York</td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>30</td>
+                        <td>Los Angeles</td>
+                    </tr>
+                    <tr>
+                        <td>Bob Johnson</td>
+                        <td>35</td>
+                        <td>Chicago</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Images</h3>
+            <div class="image-example">
+                <img src="https://via.placeholder.com/300x200" alt="Placeholder image" width="300" height="200">
+                <p>This image has a border and padding applied to it.</p>
+            </div>
+        </section>
+
+        <!-- 
+            Buttons Section: Demonstrates basic button styling.
+        -->
+        <section>
+            <h2>Buttons and Links</h2>
+            
+            <h3>Button Styles</h3>
+            <div class="button-examples">
+                <button class="btn btn-blue">Blue Button</button>
+                <button class="btn btn-green">Green Button</button>
+                <button class="btn btn-red">Red Button</button>
+            </div>
+
+            <h3>Link Examples</h3>
+            <p>Here are some <a href="#">regular links</a> that demonstrate link styling. <a href="#">Another link</a> shows how links look when styled.</p>
+        </section>
+
+        <!-- 
+            Forms Section: Demonstrates basic form styling.
+        -->
+        <section id="forms">
+            <h2>Form Styling</h2>
+            
+            <form>
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Enter your message"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <select id="category" name="category">
+                        <option value="">Select a category</option>
+                        <option value="general">General</option>
+                        <option value="support">Support</option>
+                        <option value="feedback">Feedback</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-blue">Submit Form</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- 
+        Footer: Demonstrates basic footer styling.
+    -->
+    <footer>
+        <p>&copy; 2024 CSS Basics. This page demonstrates simple CSS properties and styling.</p>
+    </footer>
+</body>
+</html>

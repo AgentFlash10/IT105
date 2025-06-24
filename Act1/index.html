@@ -574,6 +574,20 @@ It preserves both spaces and line breaks.
                 Your browser does not support the video element.
             </video>
             
+            <h3>YouTube Video Embed</h3>
+            <iframe width="400" height="300" src="https://www.youtube.com/embed/z4iWAtsudRA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <!-- 
+                YouTube Video Embed: YouTube videos must be embedded using iframe, not the video element.
+                src="https://www.youtube.com/embed/VIDEO_ID": The embed URL format for YouTube videos.
+                title: Provides accessibility information for screen readers.
+                frameborder="0": Removes the default border around the iframe.
+                allow: Specifies what features the embedded content can use (autoplay, fullscreen, etc.).
+                allowfullscreen: Enables the fullscreen button in the video player.
+                Note: The video ID "z4iWAtsudRA" is extracted from the YouTube URL.
+            -->
+            
+            <p><strong>Note:</strong> YouTube videos cannot be embedded using the HTML5 &lt;video&gt; element because YouTube doesn't provide direct video file URLs. The iframe method above is the standard way to embed YouTube videos.</p>
+            
             <h3>Embedded Content</h3>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.30591910525!2d-74.25986532929688!3d40.69714941978941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1640995200000!5m2!1sen!2s" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             <!-- 

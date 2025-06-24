@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Demonstration - Common Properties and Techniques</title>
+    
+    <!-- 
+        CSS Styles: This section contains all the CSS rules that control the appearance and layout.
+        CSS (Cascading Style Sheets) is used to style and format HTML elements.
+    -->
+    <style>
+        /* 
+            CSS Reset: Removes default browser styling to ensure consistent appearance across browsers.
+            This is a basic reset that removes margins, padding, and sets box-sizing.
+        */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 
+            Root Variables (CSS Custom Properties): Define reusable values that can be used throughout the stylesheet.
+            These make it easy to maintain consistent colors, fonts, and spacing.
+        */
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --accent-color: #e74c3c;
+            --text-color: #2c3e50;
+            --light-gray: #ecf0f1;
+            --dark-gray: #7f8c8d;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --border-radius: 8px;
+            --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* 
+            Body Styling: Sets the base styles for the entire document.
+            font-family: Specifies the font to use throughout the page.
+            line-height: Controls the spacing between lines of text.
+            color: Sets the default text color.
+            background-color: Sets the page background color.
+        */
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        /* 
+            Header Styling: Styles the main header section.
+            background: Sets a gradient background from primary to secondary color.
+            color: Sets text color to white for contrast.
+            padding: Adds space inside the header.
+            text-align: Centers the text content.
+            border-radius: Rounds the corners of the header.
+            margin-bottom: Adds space below the header.
+        */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+            box-shadow: var(--box-shadow);
+        }
+
+        /* 
+            H1 Styling: Styles the main heading.
+            font-size: Sets the text size using rem units (responsive).
+            margin-bottom: Adds space below the heading.
+            text-shadow: Adds a subtle shadow effect to the text.
+        */
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* 
+            Navigation Styling: Styles the navigation menu.
+            display: flex makes the navigation items display in a row.
+            justify-content: Centers the navigation items.
+            gap: Adds space between navigation items.
+            flex-wrap: Allows items to wrap to the next line on smaller screens.
+        */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        /* 
+            Navigation Links: Styles the navigation links.
+            text-decoration: Removes the default underline.
+            color: Sets the link color to white.
+            padding: Adds space around the links.
+            border-radius: Rounds the corners.
+            transition: Adds smooth animation when hovering.
+            display: inline-block allows padding and margin to work properly.
+        */
+        nav a {
+            text-decoration: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* 
+            Navigation Link Hover Effect: Styles links when the mouse hovers over them.
+            background-color: Changes the background color on hover.
+            transform: Scales the link slightly larger on hover.
+        */
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* 
+            Main Container: Styles the main content area.
+            max-width: Limits the width for better readability on large screens.
+            margin: Centers the content horizontally.
+            padding: Adds space around the content.
+        */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* 
+            Section Styling: Styles each content section.
+            background: Sets a white background.
+            padding: Adds space inside each section.
+            margin-bottom: Adds space between sections.
+            border-radius: Rounds the corners.
+            box-shadow: Adds a subtle shadow effect.
+        */
+        section {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        /* 
+            Section Headings: Styles the section headings.
+            color: Sets the heading color to the primary color.
+            border-bottom: Adds a line under the heading.
+            padding-bottom: Adds space between the heading and the line.
+            margin-bottom: Adds space below the heading.
+        */
+        section h2 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        /* 
+            Subsection Headings: Styles smaller headings within sections.
+            color: Uses a darker color for hierarchy.
+            margin: Adds space around the heading.
+        */
+        section h3 {
+            color: var(--text-color);
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        /* 
+            Paragraph Styling: Styles regular paragraphs.
+            margin-bottom: Adds space between paragraphs.
+            text-align: Justifies the text for better readability.
+        */
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        /* 
+            Text Formatting Examples: Demonstrates different text styling techniques.
+        */
+        .text-examples {
+            background: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 1rem 0;
+        }
+
+        .bold-text { font-weight: bold; }
+        .italic-text { font-style: italic; }
+        .underline-text { text-decoration: underline; }
+        .strike-text { text-decoration: line-through; }
+        .highlight-text { background-color: yellow; padding: 2px 4px; }
+        .uppercase-text { text-transform: uppercase; }
+        .lowercase-text { text-transform: lowercase; }
+        .capitalize-text { text-transform: capitalize; }
+
+        /* 
+            Color Examples: Demonstrates different color properties.
+        */
+        .color-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .color-box {
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .primary-color { background-color: var(--primary-color); }
+        .secondary-color { background-color: var(--secondary-color); }
+        .accent-color { background-color: var(--accent-color); }
+        .gradient-box { 
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+        }
+
+        /* 
+            Box Model Examples: Demonstrates padding, margin, and border properties.
+        */
+        .box-model-demo {
+            border: 2px solid var(--primary-color);
+            padding: 20px;
+            margin: 20px;
+            background-color: var(--light-gray);
+            border-radius: var(--border-radius);
+        }
+
+        .box-model-inner {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        /* 
+            Flexbox Examples: Demonstrates flexbox layout properties.
+        */
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--light-gray);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin: 1rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .flex-item {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            flex: 1;
+            min-width: 100px;
+        }
+
+        /* 
+            Grid Examples: Demonstrates CSS Grid layout properties.
+        */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .grid-item {
+            background: var(--secondary-color);
+            color: white;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+
+        /* 
+            Button Styling: Demonstrates interactive element styling.
+        */
+        .button-examples {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 1rem;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 
+            Form Styling: Demonstrates form element styling.
+        */
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+
+        /* 
+            Card Layout: Demonstrates card-based design patterns.
+        */
+        .card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            font-weight: bold;
+        }
+
+        .card-body {
+            padding: 1rem;
+        }
+
+        .card-footer {
+            background: var(--light-gray);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        /* 
+            Responsive Design: Demonstrates media queries for different screen sizes.
+        */
+        @media (max-width: 768px) {
+            /* 
+                Mobile Styles: Applied when screen width is 768px or less.
+                Adjusts layout and sizing for mobile devices.
+            */
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .flex-container {
+                flex-direction: column;
+            }
+
+            .button-examples {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* 
+                Small Mobile Styles: Applied when screen width is 480px or less.
+                Further adjustments for very small screens.
+            */
+            section {
+                padding: 1rem;
+            }
+
+            .color-examples {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 
+            Animation Examples: Demonstrates CSS animations and transitions.
+        */
+        .animated-box {
+            width: 100px;
+            height: 100px;
+            background: var(--accent-color);
+            border-radius: var(--border-radius);
+            animation: bounce 2s infinite;
+            margin: 1rem auto;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .pulse-button {
+            background: var(--secondary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* 
+            Pseudo-class Examples: Demonstrates :hover, :focus, and other pseudo-classes.
+        */
+        .pseudo-example {
+            background: var(--light-gray);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .pseudo-example:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.02);
+        }
+
+        .pseudo-example:active {
+            transform: scale(0.98);
+        }
+
+        /* 
+            Utility Classes: Common utility classes for quick styling.
+        */
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+        .text-right { text-align: right; }
+        .mb-1 { margin-bottom: 0.5rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-3 { margin-bottom: 1.5rem; }
+        .mt-1 { margin-top: 0.5rem; }
+        .mt-2 { margin-top: 1rem; }
+        .mt-3 { margin-top: 1.5rem; }
+        .p-1 { padding: 0.5rem; }
+        .p-2 { padding: 1rem; }
+        .p-3 { padding: 1.5rem; }
+        .rounded { border-radius: var(--border-radius); }
+        .shadow { box-shadow: var(--box-shadow); }
+    </style>
+</head>
+<body>
+    <!-- 
+        Header Section: Contains the main title and navigation.
+        Demonstrates gradient backgrounds, text styling, and navigation layout.
+    -->
+    <header>
+        <h1>CSS Demonstration</h1>
+        <p>Common Properties, Selectors, and Techniques</p>
+        <nav>
+            <a href="#text-styling">Text Styling</a>
+            <a href="#colors">Colors</a>
+            <a href="#layout">Layout</a>
+            <a href="#forms">Forms</a>
+            <a href="#animations">Animations</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- 
+            Text Styling Section: Demonstrates various text formatting properties.
+        -->
+        <section id="text-styling">
+            <h2>Text Styling and Typography</h2>
+            
+            <h3>Font Properties</h3>
+            <p>This paragraph demonstrates the default font styling with proper line height and spacing. The text is justified for better readability and uses a modern sans-serif font family.</p>
+            
+            <h3>Text Formatting Examples</h3>
+            <div class="text-examples">
+                <p><span class="bold-text">Bold text</span> - <span class="italic-text">Italic text</span> - <span class="underline-text">Underlined text</span></p>
+                <p><span class="strike-text">Strikethrough text</span> - <span class="highlight-text">Highlighted text</span></p>
+                <p><span class="uppercase-text">uppercase text</span> - <span class="lowercase-text">LOWERCASE TEXT</span> - <span class="capitalize-text">capitalized text</span></p>
+            </div>
+
+            <h3>Font Sizes and Weights</h3>
+            <p style="font-size: 0.8rem;">Small text (0.8rem)</p>
+            <p style="font-size: 1rem;">Normal text (1rem)</p>
+            <p style="font-size: 1.2rem;">Large text (1.2rem)</p>
+            <p style="font-size: 1.5rem; font-weight: 300;">Light weight (300)</p>
+            <p style="font-size: 1.5rem; font-weight: 400;">Normal weight (400)</p>
+            <p style="font-size: 1.5rem; font-weight: 700;">Bold weight (700)</p>
+        </section>
+
+        <!-- 
+            Colors Section: Demonstrates color properties and gradients.
+        -->
+        <section id="colors">
+            <h2>Colors and Backgrounds</h2>
+            
+            <h3>Color Examples</h3>
+            <div class="color-examples">
+                <div class="color-box primary-color">Primary Color</div>
+                <div class="color-box secondary-color">Secondary Color</div>
+                <div class="color-box accent-color">Accent Color</div>
+                <div class="color-box gradient-box">Gradient Background</div>
+            </div>
+
+            <h3>Box Model Demonstration</h3>
+            <div class="box-model-demo">
+                <div class="box-model-inner">
+                    Content Area (with padding)
+                </div>
+                <p class="text-center mt-2">This demonstrates the CSS box model: content, padding, border, and margin.</p>
+            </div>
+        </section>
+
+        <!-- 
+            Layout Section: Demonstrates flexbox and grid layouts.
+        -->
+        <section id="layout">
+            <h2>Layout Techniques</h2>
+            
+            <h3>Flexbox Layout</h3>
+            <div class="flex-container">
+                <div class="flex-item">Flex Item 1</div>
+                <div class="flex-item">Flex Item 2</div>
+                <div class="flex-item">Flex Item 3</div>
+                <div class="flex-item">Flex Item 4</div>
+            </div>
+
+            <h3>CSS Grid Layout</h3>
+            <div class="grid-container">
+                <div class="grid-item">Grid Item 1</div>
+                <div class="grid-item">Grid Item 2</div>
+                <div class="grid-item">Grid Item 3</div>
+                <div class="grid-item">Grid Item 4</div>
+                <div class="grid-item">Grid Item 5</div>
+                <div class="grid-item">Grid Item 6</div>
+            </div>
+
+            <h3>Card Layout Example</h3>
+            <div class="card" style="max-width: 300px; margin: 0 auto;">
+                <div class="card-header">Card Header</div>
+                <div class="card-body">
+                    <p>This is a card component demonstrating a common design pattern. Cards are great for displaying related content in a contained format.</p>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-primary">Action</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+            Buttons Section: Demonstrates button styling and interactions.
+        -->
+        <section>
+            <h2>Interactive Elements</h2>
+            
+            <h3>Button Styles</h3>
+            <div class="button-examples">
+                <button class="btn btn-primary">Primary Button</button>
+                <button class="btn btn-secondary">Secondary Button</button>
+                <button class="btn btn-outline">Outline Button</button>
+                <button class="pulse-button">Animated Button</button>
+            </div>
+
+            <h3>Pseudo-class Examples</h3>
+            <div class="pseudo-example">
+                <p>Hover over this element to see the hover effect. Click it to see the active state.</p>
+            </div>
+        </section>
+
+        <!-- 
+            Forms Section: Demonstrates form styling.
+        -->
+        <section id="forms">
+            <h2>Form Styling</h2>
+            
+            <form>
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Enter your message"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <select id="category" name="category">
+                        <option value="">Select a category</option>
+                        <option value="general">General</option>
+                        <option value="support">Support</option>
+                        <option value="feedback">Feedback</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Submit Form</button>
+            </form>
+        </section>
+
+        <!-- 
+            Animations Section: Demonstrates CSS animations and transitions.
+        -->
+        <section id="animations">
+            <h2>Animations and Transitions</h2>
+            
+            <h3>CSS Animations</h3>
+            <div class="animated-box"></div>
+            <p class="text-center">This box demonstrates a bouncing animation using @keyframes.</p>
+
+            <h3>Transitions</h3>
+            <p>All interactive elements on this page use CSS transitions for smooth animations. Try hovering over buttons and cards to see the effects.</p>
+
+            <h3>Transform Examples</h3>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <div style="width: 100px; height: 100px; background: var(--primary-color); border-radius: var(--border-radius); transition: var(--transition); cursor: pointer;" onmouseover="this.style.transform='rotate(45deg)'" onmouseout="this.style.transform='rotate(0deg)'">
+                    <p style="color: white; text-align: center; padding-top: 35px;">Rotate</p>
+                </div>
+                <div style="width: 100px; height: 100px; background: var(--secondary-color); border-radius: var(--border-radius); transition: var(--transition); cursor: pointer;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                    <p style="color: white; text-align: center; padding-top: 35px;">Scale</p>
+                </div>
+                <div style="width: 100px; height: 100px; background: var(--accent-color); border-radius: var(--border-radius); transition: var(--transition); cursor: pointer;" onmouseover="this.style.transform='skew(20deg)'" onmouseout="this.style.transform='skew(0deg)'">
+                    <p style="color: white; text-align: center; padding-top: 35px;">Skew</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+            Utility Classes Section: Demonstrates common utility classes.
+        -->
+        <section>
+            <h2>Utility Classes</h2>
+            
+            <h3>Spacing Utilities</h3>
+            <div class="p-2" style="background: var(--light-gray); border-radius: var(--border-radius);">
+                <p class="mb-1">Paragraph with bottom margin (mb-1)</p>
+                <p class="mb-2">Paragraph with larger bottom margin (mb-2)</p>
+                <p class="mb-3">Paragraph with largest bottom margin (mb-3)</p>
+            </div>
+
+            <h3>Text Alignment</h3>
+            <p class="text-left">Left-aligned text</p>
+            <p class="text-center">Center-aligned text</p>
+            <p class="text-right">Right-aligned text</p>
+        </section>
+    </div>
+
+    <!-- 
+        Footer: Demonstrates footer styling and responsive design.
+    -->
+    <footer style="background: var(--text-color); color: white; text-align: center; padding: 2rem; margin-top: 3rem; border-radius: var(--border-radius);">
+        <p>&copy; 2024 CSS Demonstration. This page showcases common CSS properties and techniques.</p>
+        <p class="mt-1">Try resizing your browser window to see responsive design in action!</p>
+    </footer>
+</body>
+</html>
