@@ -1,61 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta tags for proper character encoding and responsive viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Page title that appears in browser tab -->
     <title>ShopEasy - Your Online Store</title>
+    
+    <!-- Link to external CSS file for styling -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header -->
+    <!-- HEADER SECTION - Fixed navigation bar at the top -->
     <header class="header">
         <div class="container">
+            <!-- Company logo/brand name -->
             <div class="logo">
                 <h1>ShopEasy</h1>
             </div>
+            
+            <!-- Main navigation menu with anchor links -->
             <nav class="nav">
                 <ul>
+                    <!-- Anchor links (#) scroll to sections on the same page -->
                     <li><a href="#home">Home</a></li>
                     <li><a href="#products">Products</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
+            
+            <!-- Shopping cart icon with item counter -->
             <div class="cart-icon">
                 <span>🛒</span>
+                <!-- Cart count badge that would be updated with JavaScript -->
                 <span class="cart-count">0</span>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- HERO SECTION - Main banner/landing area -->
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
+                <!-- Main headline -->
                 <h2>Welcome to ShopEasy</h2>
+                <!-- Subtitle/description -->
                 <p>Discover amazing products at great prices</p>
+                <!-- Call-to-action button that links to products section -->
                 <a href="#products" class="cta-button">Shop Now</a>
             </div>
         </div>
     </section>
 
-    <!-- Products Section -->
+    <!-- PRODUCTS SECTION - Display of product cards -->
     <section class="products" id="products">
         <div class="container">
             <h2>Featured Products</h2>
+            
+            <!-- Product grid using CSS Grid for responsive layout -->
             <div class="product-grid">
+                
+                <!-- PRODUCT CARD 1 - Wireless Headphones -->
                 <div class="product-card">
+                    <!-- Product image container -->
                     <div class="product-image">
+                        <!-- Placeholder image from placeholder.com service -->
                         <img src="https://via.placeholder.com/300x300/3498db/ffffff?text=Product+1" alt="Product 1">
                     </div>
+                    <!-- Product information and details -->
                     <div class="product-info">
                         <h3>Wireless Headphones</h3>
+                        <!-- Price styling with special color -->
                         <p class="price">$99.99</p>
                         <p class="description">High-quality wireless headphones with noise cancellation.</p>
+                        <!-- Add to cart button (would need JavaScript for functionality) -->
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
 
+                <!-- PRODUCT CARD 2 - Smart Watch -->
                 <div class="product-card">
                     <div class="product-image">
                         <img src="https://via.placeholder.com/300x300/e74c3c/ffffff?text=Product+2" alt="Product 2">
@@ -68,6 +93,7 @@
                     </div>
                 </div>
 
+                <!-- PRODUCT CARD 3 - Laptop Backpack -->
                 <div class="product-card">
                     <div class="product-image">
                         <img src="https://via.placeholder.com/300x300/2ecc71/ffffff?text=Product+3" alt="Product 3">
@@ -80,6 +106,7 @@
                     </div>
                 </div>
 
+                <!-- PRODUCT CARD 4 - Wireless Mouse -->
                 <div class="product-card">
                     <div class="product-image">
                         <img src="https://via.placeholder.com/300x300/f39c12/ffffff?text=Product+4" alt="Product 4">
@@ -92,6 +119,7 @@
                     </div>
                 </div>
 
+                <!-- PRODUCT CARD 5 - USB-C Cable -->
                 <div class="product-card">
                     <div class="product-image">
                         <img src="https://via.placeholder.com/300x300/9b59b6/ffffff?text=Product+5" alt="Product 5">
@@ -104,6 +132,7 @@
                     </div>
                 </div>
 
+                <!-- PRODUCT CARD 6 - Phone Stand -->
                 <div class="product-card">
                     <div class="product-image">
                         <img src="https://via.placeholder.com/300x300/1abc9c/ffffff?text=Product+6" alt="Product 6">
@@ -119,24 +148,34 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- ABOUT SECTION - Company information and features -->
     <section class="about" id="about">
         <div class="container">
             <h2>About ShopEasy</h2>
+            
+            <!-- Two-column layout: company description and features -->
             <div class="about-content">
+                <!-- Left column: Company description -->
                 <div class="about-text">
                     <p>ShopEasy is your one-stop destination for quality products at affordable prices. We offer a wide range of electronics, accessories, and lifestyle products to enhance your daily life.</p>
                     <p>Our mission is to provide excellent customer service and deliver products that exceed your expectations.</p>
                 </div>
+                
+                <!-- Right column: Key features/benefits -->
                 <div class="features">
+                    <!-- Feature 1: Fast Shipping -->
                     <div class="feature">
                         <h3>🚚 Fast Shipping</h3>
                         <p>Free shipping on orders over $50</p>
                     </div>
+                    
+                    <!-- Feature 2: Secure Payment -->
                     <div class="feature">
                         <h3>🛡️ Secure Payment</h3>
                         <p>100% secure payment processing</p>
                     </div>
+                    
+                    <!-- Feature 3: Easy Returns -->
                     <div class="feature">
                         <h3>↩️ Easy Returns</h3>
                         <p>30-day return policy</p>
@@ -146,22 +185,32 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- CONTACT SECTION - Contact form and company details -->
     <section class="contact" id="contact">
         <div class="container">
             <h2>Contact Us</h2>
+            
+            <!-- Two-column layout: contact info and contact form -->
             <div class="contact-content">
+                <!-- Left column: Company contact information -->
                 <div class="contact-info">
                     <h3>Get in Touch</h3>
                     <p>📧 Email: info@shopeasy.com</p>
                     <p>📞 Phone: (555) 123-4567</p>
                     <p>📍 Address: 123 Commerce St, City, State 12345</p>
                 </div>
+                
+                <!-- Right column: Contact form -->
                 <div class="contact-form">
+                    <!-- Form would need backend processing to actually send emails -->
                     <form>
+                        <!-- Name input field -->
                         <input type="text" placeholder="Your Name" required>
+                        <!-- Email input field -->
                         <input type="email" placeholder="Your Email" required>
+                        <!-- Message textarea -->
                         <textarea placeholder="Your Message" rows="5" required></textarea>
+                        <!-- Submit button -->
                         <button type="submit" class="submit-button">Send Message</button>
                     </form>
                 </div>
@@ -169,14 +218,19 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER SECTION - Links, social media, and copyright -->
     <footer class="footer">
         <div class="container">
+            <!-- Footer content in grid layout -->
             <div class="footer-content">
+                
+                <!-- Footer section 1: Company info -->
                 <div class="footer-section">
                     <h3>ShopEasy</h3>
                     <p>Your trusted online shopping destination</p>
                 </div>
+                
+                <!-- Footer section 2: Quick navigation links -->
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
@@ -186,6 +240,8 @@
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
+                
+                <!-- Footer section 3: Customer service links -->
                 <div class="footer-section">
                     <h4>Customer Service</h4>
                     <ul>
@@ -195,6 +251,8 @@
                         <li><a href="#">Support</a></li>
                     </ul>
                 </div>
+                
+                <!-- Footer section 4: Social media links -->
                 <div class="footer-section">
                     <h4>Follow Us</h4>
                     <div class="social-links">
@@ -204,6 +262,8 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Footer bottom: Copyright notice -->
             <div class="footer-bottom">
                 <p>&copy; 2024 ShopEasy. All rights reserved.</p>
             </div>

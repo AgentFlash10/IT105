@@ -1,435 +1,529 @@
-/* Reset and Base Styles */
+/* ========================================
+   RESET AND BASE STYLES
+   ======================================== */
+
+/* CSS Reset - Removes default browser styling */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Includes padding and border in element's total width/height */
 }
 
+/* Base body styling */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern, readable font stack */
+    line-height: 1.6; /* Improves readability with comfortable line spacing */
+    color: #333; /* Dark gray text for good contrast */
 }
 
+/* Container class for consistent max-width and centering */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    max-width: 1200px; /* Maximum width to prevent content from stretching too wide */
+    margin: 0 auto; /* Centers the container horizontally */
+    padding: 0 20px; /* Adds horizontal padding for mobile responsiveness */
 }
 
-/* Header Styles */
+/* ========================================
+   HEADER STYLES
+   ======================================== */
+
+/* Fixed header that stays at the top when scrolling */
 .header {
-    background: #fff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
+    background: #fff; /* White background */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    position: fixed; /* Stays at top of viewport */
+    top: 0; /* Positions at very top */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensures header appears above other content */
 }
 
+/* Flexbox layout for header content */
 .header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 20px;
+    display: flex; /* Creates flexible layout */
+    justify-content: space-between; /* Spreads items apart */
+    align-items: center; /* Vertically centers items */
+    padding: 1rem 20px; /* Adds spacing around header content */
 }
 
+/* Company logo styling */
 .logo h1 {
-    color: #3498db;
-    font-size: 1.8rem;
-    font-weight: bold;
+    color: #3498db; /* Brand blue color */
+    font-size: 1.8rem; /* Large, prominent font size */
+    font-weight: bold; /* Makes it stand out */
 }
 
+/* Navigation menu styling */
 .nav ul {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
+    display: flex; /* Horizontal menu layout */
+    list-style: none; /* Removes bullet points */
+    gap: 2rem; /* Space between menu items */
 }
 
+/* Navigation link styling */
 .nav a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    text-decoration: none; /* Removes underline */
+    color: #333; /* Dark text color */
+    font-weight: 500; /* Medium font weight */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
 }
 
+/* Navigation link hover effect */
 .nav a:hover {
-    color: #3498db;
+    color: #3498db; /* Changes to brand blue on hover */
 }
 
+/* Shopping cart icon container */
 .cart-icon {
-    position: relative;
-    cursor: pointer;
-    font-size: 1.5rem;
+    position: relative; /* For positioning the cart count badge */
+    cursor: pointer; /* Shows it's clickable */
+    font-size: 1.5rem; /* Large emoji size */
 }
 
+/* Cart count badge styling */
 .cart-count {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background: #e74c3c;
-    color: white;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    font-weight: bold;
+    position: absolute; /* Positions relative to cart icon */
+    top: -8px; /* Moves up from the icon */
+    right: -8px; /* Moves right from the icon */
+    background: #e74c3c; /* Red background for attention */
+    color: white; /* White text */
+    border-radius: 50%; /* Makes it circular */
+    width: 20px; /* Fixed width */
+    height: 20px; /* Fixed height */
+    display: flex; /* Centers the number */
+    align-items: center; /* Vertical centering */
+    justify-content: center; /* Horizontal centering */
+    font-size: 0.8rem; /* Small font size */
+    font-weight: bold; /* Makes number stand out */
 }
 
-/* Hero Section */
+/* ========================================
+   HERO SECTION STYLES
+   ======================================== */
+
+/* Hero section with gradient background */
 .hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 120px 0 80px;
-    text-align: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Beautiful gradient background */
+    color: white; /* White text for contrast */
+    padding: 120px 0 80px; /* Large padding for impact (top accounts for fixed header) */
+    text-align: center; /* Centers all content */
 }
 
+/* Hero main headline */
 .hero-content h2 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
+    font-size: 3rem; /* Very large, impactful font size */
+    margin-bottom: 1rem; /* Space below headline */
+    font-weight: 700; /* Bold weight for emphasis */
 }
 
+/* Hero subtitle */
 .hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
+    font-size: 1.2rem; /* Larger than normal text */
+    margin-bottom: 2rem; /* Space before button */
+    opacity: 0.9; /* Slightly transparent for visual hierarchy */
 }
 
+/* Call-to-action button styling */
 .cta-button {
-    display: inline-block;
-    background: #fff;
-    color: #667eea;
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 1.1rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block; /* Allows padding and transforms */
+    background: #fff; /* White background */
+    color: #667eea; /* Gradient color for text */
+    padding: 15px 30px; /* Comfortable button padding */
+    text-decoration: none; /* Removes underline */
+    border-radius: 50px; /* Rounded pill shape */
+    font-weight: bold; /* Bold text */
+    font-size: 1.1rem; /* Larger font size */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animations */
 }
 
+/* Button hover effects */
 .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transform: translateY(-2px); /* Lifts button slightly */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Adds shadow for depth */
 }
 
-/* Products Section */
+/* ========================================
+   PRODUCTS SECTION STYLES
+   ======================================== */
+
+/* Products section background */
 .products {
-    padding: 80px 0;
-    background: #f8f9fa;
+    padding: 80px 0; /* Generous padding for breathing room */
+    background: #f8f9fa; /* Light gray background for contrast */
 }
 
+/* Products section title */
 .products h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: #333;
+    text-align: center; /* Centers the title */
+    font-size: 2.5rem; /* Large, prominent title */
+    margin-bottom: 3rem; /* Space before product grid */
+    color: #333; /* Dark text for readability */
 }
 
+/* CSS Grid for responsive product layout */
 .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+    display: grid; /* Creates grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+    gap: 2rem; /* Space between product cards */
+    margin-top: 2rem; /* Space above grid */
 }
 
+/* Individual product card styling */
 .product-card {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: white; /* White background */
+    border-radius: 15px; /* Rounded corners */
+    overflow: hidden; /* Hides image overflow */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover animations */
 }
 
+/* Product card hover effect */
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    transform: translateY(-5px); /* Lifts card up */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2); /* Deeper shadow on hover */
 }
 
+/* Product image container */
 .product-image {
-    width: 100%;
-    height: 250px;
-    overflow: hidden;
+    width: 100%; /* Full width of card */
+    height: 250px; /* Fixed height for consistency */
+    overflow: hidden; /* Hides image overflow */
 }
 
+/* Product image styling */
 .product-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+    width: 100%; /* Full width of container */
+    height: 100%; /* Full height of container */
+    object-fit: cover; /* Maintains aspect ratio while filling container */
+    transition: transform 0.3s ease; /* Smooth image zoom animation */
 }
 
+/* Image zoom effect on card hover */
 .product-card:hover .product-image img {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Slightly enlarges image */
 }
 
+/* Product information container */
 .product-info {
-    padding: 1.5rem;
+    padding: 1.5rem; /* Comfortable padding around content */
 }
 
+/* Product title */
 .product-info h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-    color: #333;
+    font-size: 1.3rem; /* Larger than normal text */
+    margin-bottom: 0.5rem; /* Space below title */
+    color: #333; /* Dark text for readability */
 }
 
+/* Product price styling */
 .price {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #e74c3c;
-    margin-bottom: 0.5rem;
+    font-size: 1.5rem; /* Large, prominent price */
+    font-weight: bold; /* Bold weight for emphasis */
+    color: #e74c3c; /* Red color to draw attention */
+    margin-bottom: 0.5rem; /* Space below price */
 }
 
+/* Product description */
 .description {
-    color: #666;
-    margin-bottom: 1rem;
-    line-height: 1.5;
+    color: #666; /* Medium gray for secondary text */
+    margin-bottom: 1rem; /* Space before button */
+    line-height: 1.5; /* Comfortable line spacing */
 }
 
+/* Add to cart button */
 .add-to-cart {
-    width: 100%;
-    background: #3498db;
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease;
+    width: 100%; /* Full width of card */
+    background: #3498db; /* Brand blue color */
+    color: white; /* White text */
+    border: none; /* Removes default border */
+    padding: 12px; /* Comfortable button padding */
+    border-radius: 8px; /* Slightly rounded corners */
+    font-size: 1rem; /* Normal font size */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Shows it's clickable */
+    transition: background 0.3s ease; /* Smooth color transition */
 }
 
+/* Button hover effect */
 .add-to-cart:hover {
-    background: #2980b9;
+    background: #2980b9; /* Darker blue on hover */
 }
 
-/* About Section */
+/* ========================================
+   ABOUT SECTION STYLES
+   ======================================== */
+
+/* About section background */
 .about {
-    padding: 80px 0;
-    background: white;
+    padding: 80px 0; /* Generous padding */
+    background: white; /* White background for contrast */
 }
 
+/* About section title */
 .about h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: #333;
+    text-align: center; /* Centers the title */
+    font-size: 2.5rem; /* Large, prominent title */
+    margin-bottom: 3rem; /* Space before content */
+    color: #333; /* Dark text for readability */
 }
 
+/* Two-column layout for about content */
 .about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
+    display: grid; /* Creates grid layout */
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 3rem; /* Space between columns */
+    align-items: center; /* Vertically centers content */
 }
 
+/* Company description text */
 .about-text p {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    color: #666;
-    line-height: 1.8;
+    font-size: 1.1rem; /* Larger than normal text */
+    margin-bottom: 1rem; /* Space between paragraphs */
+    color: #666; /* Medium gray for readability */
+    line-height: 1.8; /* Comfortable line spacing */
 }
 
+/* Features grid container */
 .features {
-    display: grid;
-    gap: 1.5rem;
+    display: grid; /* Creates grid layout */
+    gap: 1.5rem; /* Space between feature cards */
 }
 
+/* Individual feature card */
 .feature {
-    background: #f8f9fa;
-    padding: 1.5rem;
-    border-radius: 10px;
-    text-align: center;
+    background: #f8f9fa; /* Light gray background */
+    padding: 1.5rem; /* Comfortable padding */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center; /* Centers content */
 }
 
+/* Feature title */
 .feature h3 {
-    color: #3498db;
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
+    color: #3498db; /* Brand blue color */
+    margin-bottom: 0.5rem; /* Space below title */
+    font-size: 1.2rem; /* Larger than normal text */
 }
 
+/* Feature description */
 .feature p {
-    color: #666;
+    color: #666; /* Medium gray for secondary text */
 }
 
-/* Contact Section */
+/* ========================================
+   CONTACT SECTION STYLES
+   ======================================== */
+
+/* Contact section background */
 .contact {
-    padding: 80px 0;
-    background: #f8f9fa;
+    padding: 80px 0; /* Generous padding */
+    background: #f8f9fa; /* Light gray background for contrast */
 }
 
+/* Contact section title */
 .contact h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: #333;
+    text-align: center; /* Centers the title */
+    font-size: 2.5rem; /* Large, prominent title */
+    margin-bottom: 3rem; /* Space before content */
+    color: #333; /* Dark text for readability */
 }
 
+/* Two-column layout for contact content */
 .contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    display: grid; /* Creates grid layout */
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 3rem; /* Space between columns */
 }
 
+/* Contact information styling */
 .contact-info h3 {
-    color: #3498db;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
+    color: #3498db; /* Brand blue color */
+    margin-bottom: 1rem; /* Space below title */
+    font-size: 1.5rem; /* Larger than normal text */
 }
 
+/* Contact details */
 .contact-info p {
-    margin-bottom: 0.5rem;
-    color: #666;
-    font-size: 1.1rem;
+    margin-bottom: 0.5rem; /* Space between contact details */
+    color: #666; /* Medium gray for readability */
+    font-size: 1.1rem; /* Larger than normal text */
 }
 
+/* Contact form styling */
 .contact-form form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    display: flex; /* Creates flexible layout */
+    flex-direction: column; /* Stacks form elements vertically */
+    gap: 1rem; /* Space between form elements */
 }
 
+/* Form input and textarea styling */
 .contact-form input,
 .contact-form textarea {
-    padding: 12px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
+    padding: 12px; /* Comfortable padding */
+    border: 2px solid #ddd; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 1rem; /* Normal font size */
+    transition: border-color 0.3s ease; /* Smooth border color transition */
 }
 
+/* Form element focus state */
 .contact-form input:focus,
 .contact-form textarea:focus {
-    outline: none;
-    border-color: #3498db;
+    outline: none; /* Removes default focus outline */
+    border-color: #3498db; /* Changes border to brand blue */
 }
 
+/* Submit button styling */
 .submit-button {
-    background: #3498db;
-    color: white;
-    border: none;
-    padding: 15px;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease;
+    background: #3498db; /* Brand blue color */
+    color: white; /* White text */
+    border: none; /* Removes default border */
+    padding: 15px; /* Comfortable button padding */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 1rem; /* Normal font size */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Shows it's clickable */
+    transition: background 0.3s ease; /* Smooth color transition */
 }
 
+/* Submit button hover effect */
 .submit-button:hover {
-    background: #2980b9;
+    background: #2980b9; /* Darker blue on hover */
 }
 
-/* Footer */
+/* ========================================
+   FOOTER STYLES
+   ======================================== */
+
+/* Footer background */
 .footer {
-    background: #2c3e50;
-    color: white;
-    padding: 50px 0 20px;
+    background: #2c3e50; /* Dark background */
+    color: white; /* White text for contrast */
+    padding: 50px 0 20px; /* Generous padding */
 }
 
+/* Footer content grid layout */
 .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
+    display: grid; /* Creates grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+    gap: 2rem; /* Space between footer sections */
+    margin-bottom: 2rem; /* Space before footer bottom */
 }
 
+/* Footer section titles */
 .footer-section h3,
 .footer-section h4 {
-    margin-bottom: 1rem;
-    color: #3498db;
+    margin-bottom: 1rem; /* Space below titles */
+    color: #3498db; /* Brand blue color */
 }
 
+/* Footer link lists */
 .footer-section ul {
-    list-style: none;
+    list-style: none; /* Removes bullet points */
 }
 
+/* Footer list items */
 .footer-section ul li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem; /* Space between list items */
 }
 
+/* Footer links */
 .footer-section a {
-    color: #bdc3c7;
-    text-decoration: none;
-    transition: color 0.3s ease;
+    color: #bdc3c7; /* Light gray for secondary text */
+    text-decoration: none; /* Removes underline */
+    transition: color 0.3s ease; /* Smooth color transition */
 }
 
+/* Footer link hover effect */
 .footer-section a:hover {
-    color: #3498db;
+    color: #3498db; /* Changes to brand blue on hover */
 }
 
+/* Social media links container */
 .social-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    display: flex; /* Creates flexible layout */
+    flex-direction: column; /* Stacks links vertically */
+    gap: 0.5rem; /* Space between social links */
 }
 
+/* Footer bottom section */
 .footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid #34495e;
-    color: #bdc3c7;
+    text-align: center; /* Centers copyright text */
+    padding-top: 2rem; /* Space above copyright */
+    border-top: 1px solid #34495e; /* Separator line */
+    color: #bdc3c7; /* Light gray for secondary text */
 }
 
-/* Responsive Design */
+/* ========================================
+   RESPONSIVE DESIGN - MOBILE FIRST APPROACH
+   ======================================== */
+
+/* Tablet and smaller desktop screens */
 @media (max-width: 768px) {
+    /* Stack header elements vertically on mobile */
     .header .container {
-        flex-direction: column;
-        gap: 1rem;
+        flex-direction: column; /* Stacks logo, nav, and cart vertically */
+        gap: 1rem; /* Space between stacked elements */
     }
     
+    /* Reduce navigation spacing */
     .nav ul {
-        gap: 1rem;
+        gap: 1rem; /* Less space between nav items */
     }
     
+    /* Smaller hero text for mobile */
     .hero-content h2 {
-        font-size: 2rem;
+        font-size: 2rem; /* Smaller headline */
     }
     
     .hero-content p {
-        font-size: 1rem;
+        font-size: 1rem; /* Smaller subtitle */
     }
     
+    /* Stack about and contact sections vertically */
     .about-content,
     .contact-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+        grid-template-columns: 1fr; /* Single column layout */
+        gap: 2rem; /* Space between stacked content */
     }
     
+    /* Adjust product grid for smaller screens */
     .product-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Smaller minimum column width */
+        gap: 1rem; /* Less space between cards */
     }
     
+    /* Stack footer sections vertically */
     .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
+        grid-template-columns: 1fr; /* Single column layout */
+        text-align: center; /* Center footer content */
     }
 }
 
+/* Mobile phones */
 @media (max-width: 480px) {
+    /* Reduce container padding on very small screens */
     .container {
-        padding: 0 15px;
+        padding: 0 15px; /* Less horizontal padding */
     }
     
+    /* Adjust hero padding for mobile */
     .hero {
-        padding: 100px 0 60px;
+        padding: 100px 0 60px; /* Less padding on mobile */
     }
     
+    /* Even smaller hero text for phones */
     .hero-content h2 {
-        font-size: 1.8rem;
+        font-size: 1.8rem; /* Smaller headline for phones */
     }
     
+    /* Smaller section titles for mobile */
     .products h2,
     .about h2,
     .contact h2 {
-        font-size: 2rem;
+        font-size: 2rem; /* Smaller titles */
     }
     
+    /* Single column product grid on phones */
     .product-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* One product per row */
     }
 } 
