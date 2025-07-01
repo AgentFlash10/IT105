@@ -582,23 +582,32 @@ let car = {
             document.getElementById('dataTypesResult').innerHTML = result;
         }
 
-        // 2. Functions
+        // ========================================
+        // 2. FUNCTIONS DEMONSTRATION
+        // ========================================
+        // This function demonstrates different ways to create and use functions in JavaScript
+        // Shows function declarations, arrow functions, and function expressions
         function demonstrateFunctions() {
+            // Get user input from the form, or use "Anonymous" as default
             const name = document.getElementById('functionInput').value || "Anonymous";
             
-            // Function declaration
+            // Function Declaration: Traditional way to define a function
+            // This function takes a name parameter and returns a greeting string
             function greet(name) {
                 return "Hello, " + name + "!";
             }
 
-            // Arrow function
+            // Arrow Function: Modern ES6 syntax for creating functions
+            // Shorter syntax, automatically returns the result of the expression
             const multiply = (a, b) => a * b;
 
-            // Function expression
+            // Function Expression: Assigning a function to a variable
+            // This creates an anonymous function and assigns it to calculateArea
             const calculateArea = function(width, height) {
                 return width * height;
             };
 
+            // Create HTML result showing the output of each function
             let result = `
                 <div class="success">
                     <strong>Function Results:</strong><br>
@@ -607,33 +616,43 @@ let car = {
                     Area (4 × 6): ${calculateArea(4, 6)} square units
                 </div>
             `;
+            // Display the results in the HTML
             document.getElementById('functionResult').innerHTML = result;
         }
 
-        // 3. Arrays
+        // ========================================
+        // 3. ARRAYS AND ARRAY METHODS DEMONSTRATION
+        // ========================================
+        // This function demonstrates common array methods for manipulating arrays
+        // Shows how to add, remove, and iterate through array elements
         function demonstrateArrays() {
+            // Initialize an array with some fruits
             let fruits = ["apple", "banana", "orange"];
+            
+            // Start building the result HTML with the original array
             let result = `<div class="highlight"><strong>Original Array:</strong> [${fruits.join(", ")}]</div>`;
             
-            // Push
+            // push() method: Adds an element to the end of the array
             fruits.push("grape");
             result += `<div class="success">After push("grape"): [${fruits.join(", ")}]</div>`;
             
-            // Unshift
+            // unshift() method: Adds an element to the beginning of the array
             fruits.unshift("mango");
             result += `<div class="success">After unshift("mango"): [${fruits.join(", ")}]</div>`;
             
-            // Pop
+            // pop() method: Removes and returns the last element from the array
             let popped = fruits.pop();
             result += `<div class="success">After pop(): [${fruits.join(", ")}] (removed: ${popped})</div>`;
             
-            // Shift
+            // shift() method: Removes and returns the first element from the array
             let shifted = fruits.shift();
             result += `<div class="success">After shift(): [${fruits.join(", ")}] (removed: ${shifted})</div>`;
 
+            // Display the step-by-step results in the HTML
             document.getElementById('arrayResult').innerHTML = result;
             
-            // Display array items
+            // Demonstrate forEach method: Iterate through each array element
+            // This creates visual representation of the final array with indices
             let display = "";
             fruits.forEach((fruit, index) => {
                 display += `<span class="array-item">${index}: ${fruit}</span>`;
@@ -641,21 +660,33 @@ let car = {
             document.getElementById('arrayDisplay').innerHTML = display;
         }
 
-        // 4. Objects
+        // ========================================
+        // 4. OBJECTS DEMONSTRATION
+        // ========================================
+        // This function demonstrates how to create and use objects in JavaScript
+        // Shows object properties, methods, and the 'this' keyword
         function demonstrateObjects() {
+            // Create a car object with properties and methods
             let car = {
-                brand: "Toyota",
-                model: "Camry",
-                year: 2020,
-                color: "Silver",
+                // Object properties: key-value pairs
+                brand: "Toyota",      // String property
+                model: "Camry",       // String property
+                year: 2020,           // Number property
+                color: "Silver",      // String property
+                
+                // Object method: function that belongs to the object
+                // 'this' refers to the current object (car)
                 start: function() {
                     return "Vroom! " + this.brand + " " + this.model + " is starting!";
                 },
+                
+                // Another method using template literals for cleaner string formatting
                 getInfo: function() {
                     return `${this.year} ${this.brand} ${this.model} (${this.color})`;
                 }
             };
 
+            // Create HTML result showing object properties and method calls
             let result = `
                 <div class="object-demo">
                     <strong>Car Object Properties:</strong><br>
@@ -667,122 +698,185 @@ let car = {
                     <div class="object-property">Info: ${car.getInfo()}</div>
                 </div>
             `;
+            // Display the object demonstration in the HTML
             document.getElementById('objectResult').innerHTML = result;
         }
 
-        // 5. DOM Manipulation
+        // ========================================
+        // 5. DOM MANIPULATION DEMONSTRATION
+        // ========================================
+        // These functions demonstrate how JavaScript can interact with HTML elements
+        // Shows how to modify content, styles, and structure of the webpage
+        
+        // Function to change the text content and color of a DOM element
         function changeDOM() {
+            // Get the value from the input field
             const input = document.getElementById('domInput').value;
+            // Get the target element to modify
             const target = document.getElementById('domTarget');
+            
+            // Check if input is not empty (trim removes whitespace)
             if (input.trim()) {
+                // Change the inner HTML content of the target element
                 target.innerHTML = input;
+                // Generate a random color and apply it to the element
                 target.style.color = '#' + Math.floor(Math.random()*16777215).toString(16);
             }
         }
 
+        // Function to create and add a new element to the DOM
         function addElement() {
+            // Get the container where new elements will be added
             const container = document.getElementById('elementContainer');
+            // Create a new div element
             const newElement = document.createElement('div');
+            // Add CSS class for styling
             newElement.className = 'success';
+            // Set the content with current timestamp
             newElement.innerHTML = `New element added at ${new Date().toLocaleTimeString()}`;
+            // Add the new element as a child of the container
             container.appendChild(newElement);
         }
 
+        // Function to remove the last element from the DOM
         function removeElement() {
+            // Get the container element
             const container = document.getElementById('elementContainer');
+            // Check if container has any child elements
             if (container.lastChild) {
+                // Remove the last child element
                 container.removeChild(container.lastChild);
             }
         }
 
-        // 6. Event Handling
+        // ========================================
+        // 6. EVENT HANDLING DEMONSTRATION
+        // ========================================
+        // This section demonstrates how to handle various user interactions
+        // Shows different types of events and how to respond to them
+        
+        // Wait for the DOM to be fully loaded before setting up event listeners
         document.addEventListener('DOMContentLoaded', function() {
+            // Get references to the DOM elements we want to attach events to
             const eventBtn = document.getElementById('eventBtn');
             const hoverBtn = document.getElementById('hoverBtn');
             const eventInput = document.getElementById('eventInput');
             const eventLog = document.getElementById('eventLog');
 
+            // Click event: Triggered when user clicks on the button
             eventBtn.addEventListener('click', function() {
                 logEvent('Button clicked!');
+                // Add a visual feedback effect (scale down slightly)
                 this.style.transform = 'scale(0.95)';
+                // Reset the transform after 100ms for a "press" effect
                 setTimeout(() => this.style.transform = '', 100);
             });
 
+            // Mouse enter event: Triggered when mouse enters the button area
             hoverBtn.addEventListener('mouseenter', function() {
                 logEvent('Mouse entered hover button');
+                // Change background color to indicate hover state
                 this.style.background = '#5a67d8';
             });
 
+            // Mouse leave event: Triggered when mouse leaves the button area
             hoverBtn.addEventListener('mouseleave', function() {
                 logEvent('Mouse left hover button');
+                // Restore original background color
                 this.style.background = '#667eea';
             });
 
+            // Input event: Triggered every time the input value changes
             eventInput.addEventListener('input', function() {
                 logEvent(`Input changed: "${this.value}"`);
             });
 
+            // Focus event: Triggered when input field gains focus (user clicks or tabs to it)
             eventInput.addEventListener('focus', function() {
                 logEvent('Input field focused');
             });
 
+            // Blur event: Triggered when input field loses focus (user clicks elsewhere)
             eventInput.addEventListener('blur', function() {
                 logEvent('Input field lost focus');
             });
 
+            // Helper function to log events with timestamps
             function logEvent(message) {
                 const timestamp = new Date().toLocaleTimeString();
                 eventLog.innerHTML = `<strong>${timestamp}:</strong> ${message}`;
             }
         });
 
-        // 7. Conditional Statements
+        // ========================================
+        // 7. CONDITIONAL STATEMENTS DEMONSTRATION
+        // ========================================
+        // This function demonstrates how to use if/else statements to make decisions
+        // Shows how to categorize data based on different conditions
         function checkAge() {
+            // Get the age value from input and convert it to an integer
             const age = parseInt(document.getElementById('ageInput').value);
             let category, color;
 
+            // Use if/else if/else structure to categorize age
+            // Check conditions in order from most specific to least specific
+            
             if (age < 0) {
+                // Invalid age (negative numbers)
                 category = "Invalid age";
                 color = "error";
             } else if (age < 13) {
+                // Child: 0-12 years old
                 category = "Child";
                 color = "success";
             } else if (age < 20) {
+                // Teenager: 13-19 years old
                 category = "Teenager";
                 color = "highlight";
             } else if (age < 65) {
+                // Adult: 20-64 years old
                 category = "Adult";
                 color = "success";
             } else {
+                // Senior: 65+ years old
                 category = "Senior";
                 color = "highlight";
             }
 
+            // Display the result with appropriate styling based on the category
             document.getElementById('conditionalResult').innerHTML = 
                 `<div class="${color}">Age ${age}: You are a ${category}</div>`;
         }
 
-        // 8. Loops
+        // ========================================
+        // 8. LOOPS DEMONSTRATION
+        // ========================================
+        // This function demonstrates different types of loops in JavaScript
+        // Shows for loops, while loops, and array methods for iteration
         function demonstrateLoops() {
+            // Start building the result HTML
             let result = '<div class="highlight"><strong>Loop Examples:</strong><br>';
             
-            // For loop
+            // For Loop: Traditional loop with counter
+            // Syntax: for (initialization; condition; increment/decrement)
             result += '<strong>For loop (1-5):</strong> ';
             for (let i = 1; i <= 5; i++) {
                 result += i + ' ';
             }
             result += '<br>';
 
-            // While loop
+            // While Loop: Loop that continues while condition is true
+            // Useful when you don't know how many iterations you need
             result += '<strong>While loop (countdown):</strong> ';
             let count = 3;
             while (count > 0) {
                 result += count + ' ';
-                count--;
+                count--; // Decrement the counter
             }
             result += '<br>';
 
-            // ForEach loop
+            // ForEach Method: Modern way to iterate through arrays
+            // Executes a function for each element in the array
             const colors = ['red', 'green', 'blue'];
             result += '<strong>ForEach loop (colors):</strong> ';
             colors.forEach(color => {
@@ -790,139 +884,196 @@ let car = {
             });
             result += '<br>';
 
-            // Map
+            // Map Method: Creates a new array by transforming each element
+            // Returns a new array with the same length as the original
             const numbers = [1, 2, 3, 4, 5];
             const doubled = numbers.map(num => num * 2);
             result += `<strong>Map (doubled numbers):</strong> [${doubled.join(', ')}]<br>`;
 
-            // Filter
+            // Filter Method: Creates a new array with elements that pass a test
+            // Returns a new array that may be shorter than the original
             const evenNumbers = numbers.filter(num => num % 2 === 0);
             result += `<strong>Filter (even numbers):</strong> [${evenNumbers.join(', ')}]</div>`;
 
+            // Display all the loop examples in the HTML
             document.getElementById('loopResult').innerHTML = result;
         }
 
-        // 9. Error Handling
+        // ========================================
+        // 9. ERROR HANDLING DEMONSTRATION
+        // ========================================
+        // This function demonstrates how to handle errors gracefully using try-catch blocks
+        // Shows how to prevent crashes and provide meaningful error messages
         function demonstrateErrorHandling() {
+            // Start building the result HTML
             let result = '<div class="highlight"><strong>Error Handling Examples:</strong><br>';
 
-            // Try-catch with intentional error
+            // Example 1: Try-catch with intentional mathematical error
             try {
+                // This will result in Infinity (division by zero)
                 const result = 10 / 0;
+                // Check if the result is finite (not Infinity or -Infinity)
                 if (!isFinite(result)) {
+                    // Throw a custom error with a descriptive message
                     throw new Error("Division by zero detected!");
                 }
             } catch (error) {
+                // Catch and display the error message
                 result += `<div class="error">Caught error: ${error.message}</div>`;
             }
 
-            // Try-catch with JSON parsing
+            // Example 2: Try-catch with JSON parsing error
             try {
-                const invalidJSON = '{name: "John"}'; // Missing quotes
+                // Invalid JSON (missing quotes around property name)
+                const invalidJSON = '{name: "John"}'; // Should be '{"name": "John"}'
                 const parsed = JSON.parse(invalidJSON);
             } catch (error) {
+                // Catch and display the JSON parsing error
                 result += `<div class="error">JSON parsing error: ${error.message}</div>`;
             }
 
-            // Successful operation
+            // Example 3: Successful operation (no error)
             try {
+                // Valid JSON string
                 const validJSON = '{"name": "John", "age": 30}';
                 const parsed = JSON.parse(validJSON);
+                // Successfully parse and display the data
                 result += `<div class="success">Successfully parsed: ${parsed.name} is ${parsed.age} years old</div>`;
             } catch (error) {
+                // This catch block won't execute since the JSON is valid
                 result += `<div class="error">Unexpected error: ${error.message}</div>`;
             }
 
+            // Close the result div and display in HTML
             result += '</div>';
             document.getElementById('errorResult').innerHTML = result;
         }
 
-        // 10. Asynchronous JavaScript
+        // ========================================
+        // 10. ASYNCHRONOUS JAVASCRIPT DEMONSTRATION
+        // ========================================
+        // This function demonstrates asynchronous programming concepts
+        // Shows setTimeout and Promises for handling operations that take time
         function demonstrateAsync() {
+            // Get the result container element
             const resultDiv = document.getElementById('asyncResult');
+            
+            // Show initial message
             resultDiv.innerHTML = '<div class="highlight">Starting async operation...</div>';
 
-            // Simulate async operation with setTimeout
+            // Example 1: setTimeout - Simple asynchronous operation
+            // setTimeout delays execution of code for a specified number of milliseconds
             setTimeout(() => {
                 resultDiv.innerHTML = '<div class="success">Async operation completed after 2 seconds!</div>';
-            }, 2000);
+            }, 2000); // 2000ms = 2 seconds
 
-            // Promise example
+            // Example 2: Promise - More sophisticated async handling
+            // Promises represent the eventual completion (or failure) of an async operation
             const promise = new Promise((resolve, reject) => {
+                // Simulate an async operation that takes 1 second
                 setTimeout(() => {
+                    // Generate a random number to simulate success/failure
                     const random = Math.random();
                     if (random > 0.5) {
+                        // Success case: call resolve with the result
                         resolve(`Success! Random number: ${random.toFixed(3)}`);
                     } else {
+                        // Failure case: call reject with the error
                         reject(`Failed! Random number: ${random.toFixed(3)}`);
                     }
-                }, 1000);
+                }, 1000); // 1000ms = 1 second
             });
 
+            // Handle the Promise result using .then() and .catch()
             promise
                 .then(result => {
+                    // This runs if the Promise was successful (resolved)
                     resultDiv.innerHTML += `<div class="success">Promise resolved: ${result}</div>`;
                 })
                 .catch(error => {
+                    // This runs if the Promise failed (rejected)
                     resultDiv.innerHTML += `<div class="error">Promise rejected: ${error}</div>`;
                 });
         }
 
-        // Initialize the page
+        // ========================================
+        // PAGE INITIALIZATION
+        // ========================================
+        // Wait for the DOM to be fully loaded before setting up the page
         document.addEventListener('DOMContentLoaded', function() {
             console.log('JavaScript Fundamentals page loaded successfully!');
             
-            // Add file upload preview functionality
+            // Set up file upload preview functionality
+            // This allows users to see a preview of uploaded images
             const fileUpload = document.getElementById('fileUpload');
             if (fileUpload) {
                 fileUpload.addEventListener('change', handleFileUpload);
             }
         });
 
-        // 11. Form Elements and Validation
+        // ========================================
+        // 11. FORM ELEMENTS AND VALIDATION DEMONSTRATION
+        // ========================================
+        // This section demonstrates comprehensive form handling in JavaScript
+        // Shows form submission, validation, data processing, and user feedback
+        
+        // Handle form submission when user clicks submit button
         function handleFormSubmit(event) {
+            // Prevent the default form submission behavior (page reload)
             event.preventDefault();
             
+            // Create FormData object from the form
+            // FormData automatically collects all form field values
             const formData = new FormData(event.target);
             const formObject = {};
             
-            // Convert FormData to object
+            // Convert FormData to a regular JavaScript object
+            // This makes it easier to work with the data
             for (let [key, value] of formData.entries()) {
                 if (formObject[key]) {
+                    // If the key already exists, handle multiple values (like checkboxes)
                     if (Array.isArray(formObject[key])) {
                         formObject[key].push(value);
                     } else {
+                        // Convert single value to array to handle multiple values
                         formObject[key] = [formObject[key], value];
                     }
                 } else {
+                    // First occurrence of this key
                     formObject[key] = value;
                 }
             }
             
-            // Validate form
+            // Validate the form data before processing
             const validationResult = validateFormData(formObject);
             
             if (validationResult.isValid) {
+                // Form is valid - show success message
                 document.getElementById('formResult').innerHTML = 
                     '<div class="success">✅ Form submitted successfully!</div>';
                 
-                // Simulate sending data to server
+                // Simulate sending data to server (in real app, this would be an API call)
                 setTimeout(() => {
                     document.getElementById('formResult').innerHTML += 
                         '<div class="highlight">📤 Data would be sent to server in a real application</div>';
                 }, 1000);
             } else {
+                // Form has validation errors - show error message
                 document.getElementById('formResult').innerHTML = 
                     '<div class="error">❌ Form validation failed. Please check the errors above.</div>';
             }
         }
 
+        // Validate form data and display results
         function validateForm() {
+            // Get the form element
             const form = document.getElementById('demoForm');
+            // Create FormData object from the form
             const formData = new FormData(form);
             const formObject = {};
             
-            // Convert FormData to object
+            // Convert FormData to a regular JavaScript object
+            // This handles multiple values for the same field (like checkboxes)
             for (let [key, value] of formData.entries()) {
                 if (formObject[key]) {
                     if (Array.isArray(formObject[key])) {
@@ -935,26 +1086,31 @@ let car = {
                 }
             }
             
+            // Perform validation and display results
             const validationResult = validateFormData(formObject);
             displayValidationResults(validationResult);
         }
 
+        // Comprehensive form validation function
+        // Checks all form fields and returns validation results
         function validateFormData(data) {
-            const errors = [];
-            const warnings = [];
+            const errors = [];    // Array to store validation errors
+            const warnings = [];  // Array to store validation warnings
             
             // Required field validation
+            // Check if full name exists and is at least 2 characters long
             if (!data.fullName || data.fullName.trim().length < 2) {
                 errors.push('Full name is required and must be at least 2 characters long');
             }
             
+            // Email validation: required field with format check
             if (!data.email) {
                 errors.push('Email is required');
             } else if (!isValidEmail(data.email)) {
                 errors.push('Please enter a valid email address');
             }
             
-            // Age validation
+            // Age validation: optional field with range check
             if (data.age) {
                 const age = parseInt(data.age);
                 if (age < 1 || age > 120) {
@@ -962,31 +1118,35 @@ let car = {
                 }
             }
             
-            // Website validation
+            // Website validation: optional field with URL format check
             if (data.website && !isValidUrl(data.website)) {
                 errors.push('Please enter a valid website URL');
             }
             
-            // Experience level validation
+            // Experience level validation: recommended field
             if (!data.experience) {
                 warnings.push('Experience level is recommended');
             }
             
-            // Interests validation
+            // Interests validation: recommended field (can be multiple)
             if (!data.interests || (Array.isArray(data.interests) && data.interests.length === 0)) {
                 warnings.push('Selecting interests is recommended');
             }
             
+            // Return validation result object
             return {
-                isValid: errors.length === 0,
-                errors: errors,
-                warnings: warnings
+                isValid: errors.length === 0,  // Form is valid if no errors
+                errors: errors,                // Array of error messages
+                warnings: warnings             // Array of warning messages
             };
         }
 
+        // Display validation results with appropriate styling
         function displayValidationResults(validationResult) {
+            // Start building the HTML result
             let resultHTML = '<div class="highlight"><strong>Validation Results:</strong><br>';
             
+            // Display errors if any exist
             if (validationResult.errors.length > 0) {
                 resultHTML += '<div class="validation-error"><strong>Errors:</strong><br>';
                 validationResult.errors.forEach(error => {
@@ -995,6 +1155,7 @@ let car = {
                 resultHTML += '</div>';
             }
             
+            // Display warnings if any exist
             if (validationResult.warnings.length > 0) {
                 resultHTML += '<div class="validation-success"><strong>Warnings:</strong><br>';
                 validationResult.warnings.forEach(warning => {
@@ -1003,20 +1164,25 @@ let car = {
                 resultHTML += '</div>';
             }
             
+            // Show success message if no errors or warnings
             if (validationResult.errors.length === 0 && validationResult.warnings.length === 0) {
                 resultHTML += '<div class="validation-success">✅ All validations passed!</div>';
             }
             
+            // Close the result div and display in HTML
             resultHTML += '</div>';
             document.getElementById('formResult').innerHTML = resultHTML;
         }
 
+        // Display form data as formatted JSON
         function showFormData() {
+            // Get the form and create FormData object
             const form = document.getElementById('demoForm');
             const formData = new FormData(form);
             const formObject = {};
             
-            // Convert FormData to object
+            // Convert FormData to a regular JavaScript object
+            // This handles multiple values for the same field (like checkboxes)
             for (let [key, value] of formData.entries()) {
                 if (formObject[key]) {
                     if (Array.isArray(formObject[key])) {
@@ -1029,38 +1195,50 @@ let car = {
                 }
             }
             
+            // Convert object to formatted JSON string for display
             const displayData = JSON.stringify(formObject, null, 2);
             document.getElementById('formDataDisplay').innerHTML = 
                 `<div class="form-data-display"><strong>Form Data (JSON):</strong><br>${displayData}</div>`;
         }
 
+        // Reset the form to its initial state
         function resetForm() {
+            // Get the form element and reset all fields to default values
             const form = document.getElementById('demoForm');
             form.reset();
+            
+            // Clear any validation results or form data displays
             document.getElementById('formResult').innerHTML = '';
             document.getElementById('formDataDisplay').innerHTML = '';
             
-            // Clear file preview
+            // Remove any file preview that might be displayed
             const filePreview = document.querySelector('.file-preview');
             if (filePreview) {
                 filePreview.remove();
             }
         }
 
+        // Handle file upload and create preview
         function handleFileUpload(event) {
+            // Get the selected file from the input
             const file = event.target.files[0];
             if (file) {
+                // Create a FileReader to read the file contents
                 const reader = new FileReader();
+                
+                // Set up what happens when the file is loaded
                 reader.onload = function(e) {
-                    // Remove existing preview
+                    // Remove any existing file preview to avoid duplicates
                     const existingPreview = document.querySelector('.file-preview');
                     if (existingPreview) {
                         existingPreview.remove();
                     }
                     
-                    // Create new preview
+                    // Create a new preview container
                     const preview = document.createElement('div');
                     preview.className = 'file-preview';
+                    
+                    // Build the preview HTML with file information and image
                     preview.innerHTML = `
                         <strong>File Preview:</strong><br>
                         <strong>Name:</strong> ${file.name}<br>
@@ -1069,24 +1247,36 @@ let car = {
                         <img src="${e.target.result}" alt="File preview">
                     `;
                     
+                    // Add the preview to the page
                     event.target.parentNode.appendChild(preview);
                 };
+                
+                // Start reading the file as a data URL (for image preview)
                 reader.readAsDataURL(file);
             }
         }
 
-        // Utility functions
+        // ========================================
+        // UTILITY FUNCTIONS
+        // ========================================
+        // Helper functions used throughout the application
+        
+        // Validate email format using regular expression
         function isValidEmail(email) {
+            // Regular expression pattern for email validation
+            // Checks for: text@text.text format
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             return emailRegex.test(email);
         }
 
+        // Validate URL format using URL constructor
         function isValidUrl(url) {
             try {
+                // Try to create a URL object - this will throw an error if invalid
                 new URL(url);
-                return true;
+                return true;  // URL is valid
             } catch {
-                return false;
+                return false; // URL is invalid
             }
         }
     </script>
