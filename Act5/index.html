@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Fundamentals Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            background: #f8f9fa;
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .demo-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+
+        .btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .result {
+            background: #e6fffa;
+            border: 1px solid #81e6d9;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .input-group {
+            margin: 10px 0;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .array-demo {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 10px 0;
+        }
+
+        .array-item {
+            background: #667eea;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+        }
+
+        .object-demo {
+            background: #f7fafc;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .object-property {
+            margin: 5px 0;
+            padding: 5px;
+            background: white;
+            border-radius: 3px;
+        }
+
+        .highlight {
+            background: #fef5e7;
+            border: 1px solid #f6ad55;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .error {
+            background: #fed7d7;
+            border: 1px solid #fc8181;
+            color: #c53030;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .success {
+            background: #c6f6d5;
+            border: 1px solid #68d391;
+            color: #22543d;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        /* Form Styles */
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e1e5e9;
+        }
+
+        .checkbox-group, .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .checkbox-group label, .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        .checkbox-group input, .radio-group input {
+            width: auto;
+            margin: 0;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: inherit;
+            resize: vertical;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            background: white;
+        }
+
+        .form-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .form-data-display {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            white-space: pre-wrap;
+        }
+
+        .validation-error {
+            background: #fed7d7;
+            border: 1px solid #fc8181;
+            color: #c53030;
+            padding: 8px;
+            border-radius: 4px;
+            margin: 5px 0;
+            font-size: 12px;
+        }
+
+        .validation-success {
+            background: #c6f6d5;
+            border: 1px solid #68d391;
+            color: #22543d;
+            padding: 8px;
+            border-radius: 4px;
+            margin: 5px 0;
+            font-size: 12px;
+        }
+
+        .file-preview {
+            margin-top: 10px;
+            padding: 10px;
+            background: #f7fafc;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .file-preview img {
+            max-width: 200px;
+            max-height: 150px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 JavaScript Fundamentals</h1>
+            <p>Interactive demonstrations of core JavaScript concepts</p>
+        </div>
+
+        <div class="content">
+            <!-- Variables and Data Types -->
+            <div class="section">
+                <h2>1. Variables and Data Types</h2>
+                <div class="demo-box">
+                    <p>JavaScript has several data types. Let's explore them:</p>
+                    <div class="code-block">
+let name = "John Doe";           // String
+let age = 25;                   // Number
+let isStudent = true;           // Boolean
+let hobbies = ["coding", "reading"]; // Array
+let person = {name: "Jane", age: 30}; // Object
+let undefinedVar;               // Undefined
+let nullVar = null;             // Null
+                    </div>
+                    <button class="btn" onclick="showDataTypes()">Show Data Types</button>
+                    <div id="dataTypesResult"></div>
+                </div>
+            </div>
+
+            <!-- Functions -->
+            <div class="section">
+                <h2>2. Functions</h2>
+                <div class="demo-box">
+                    <p>Functions are reusable blocks of code:</p>
+                    <div class="code-block">
+// Function declaration
+function greet(name) {
+    return "Hello, " + name + "!";
+}
+
+// Arrow function
+const multiply = (a, b) => a * b;
+
+// Function expression
+const calculateArea = function(width, height) {
+    return width * height;
+};
+                    </div>
+                    <div class="input-group">
+                        <label for="functionInput">Enter your name:</label>
+                        <input type="text" id="functionInput" placeholder="Your name">
+                    </div>
+                    <button class="btn" onclick="demonstrateFunctions()">Test Functions</button>
+                    <div id="functionResult"></div>
+                </div>
+            </div>
+
+            <!-- Arrays -->
+            <div class="section">
+                <h2>3. Arrays and Array Methods</h2>
+                <div class="demo-box">
+                    <p>Arrays are ordered collections of values:</p>
+                    <div class="code-block">
+let fruits = ["apple", "banana", "orange"];
+fruits.push("grape");           // Add to end
+fruits.unshift("mango");        // Add to beginning
+fruits.pop();                   // Remove from end
+fruits.shift();                 // Remove from beginning
+                    </div>
+                    <button class="btn" onclick="demonstrateArrays()">Demonstrate Arrays</button>
+                    <div id="arrayResult"></div>
+                    <div id="arrayDisplay" class="array-demo"></div>
+                </div>
+            </div>
+
+            <!-- Objects -->
+            <div class="section">
+                <h2>4. Objects</h2>
+                <div class="demo-box">
+                    <p>Objects store data as key-value pairs:</p>
+                    <div class="code-block">
+let car = {
+    brand: "Toyota",
+    model: "Camry",
+    year: 2020,
+    start: function() {
+        return "Vroom! " + this.brand + " " + this.model + " is starting!";
+    }
+};
+                    </div>
+                    <button class="btn" onclick="demonstrateObjects()">Show Object Properties</button>
+                    <div id="objectResult"></div>
+                </div>
+            </div>
+
+            <!-- DOM Manipulation -->
+            <div class="section">
+                <h2>5. DOM Manipulation</h2>
+                <div class="demo-box">
+                    <p>JavaScript can interact with HTML elements:</p>
+                    <div class="input-group">
+                        <label for="domInput">Enter text to display:</label>
+                        <input type="text" id="domInput" placeholder="Type something...">
+                    </div>
+                    <button class="btn" onclick="changeDOM()">Change DOM</button>
+                    <button class="btn" onclick="addElement()">Add Element</button>
+                    <button class="btn" onclick="removeElement()">Remove Element</button>
+                    <div id="domTarget" class="result">This text will change when you click the button!</div>
+                    <div id="elementContainer"></div>
+                </div>
+            </div>
+
+            <!-- Events -->
+            <div class="section">
+                <h2>6. Event Handling</h2>
+                <div class="demo-box">
+                    <p>JavaScript responds to user interactions:</p>
+                    <button class="btn" id="eventBtn">Click me!</button>
+                    <button class="btn" id="hoverBtn">Hover over me!</button>
+                    <div class="input-group">
+                        <label for="eventInput">Type here to see events:</label>
+                        <input type="text" id="eventInput" placeholder="Start typing...">
+                    </div>
+                    <div id="eventLog" class="result">Event log will appear here...</div>
+                </div>
+            </div>
+
+            <!-- Conditional Statements -->
+            <div class="section">
+                <h2>7. Conditional Statements</h2>
+                <div class="demo-box">
+                    <p>Make decisions in your code:</p>
+                    <div class="input-group">
+                        <label for="ageInput">Enter your age:</label>
+                        <input type="number" id="ageInput" placeholder="Enter age">
+                    </div>
+                    <button class="btn" onclick="checkAge()">Check Age Category</button>
+                    <div id="conditionalResult"></div>
+                </div>
+            </div>
+
+            <!-- Loops -->
+            <div class="section">
+                <h2>8. Loops</h2>
+                <div class="demo-box">
+                    <p>Repeat actions with loops:</p>
+                    <button class="btn" onclick="demonstrateLoops()">Show Loop Examples</button>
+                    <div id="loopResult"></div>
+                </div>
+            </div>
+
+            <!-- Error Handling -->
+            <div class="section">
+                <h2>9. Error Handling</h2>
+                <div class="demo-box">
+                    <p>Handle errors gracefully:</p>
+                    <button class="btn" onclick="demonstrateErrorHandling()">Test Error Handling</button>
+                    <div id="errorResult"></div>
+                </div>
+            </div>
+
+            <!-- Async JavaScript -->
+            <div class="section">
+                <h2>10. Asynchronous JavaScript</h2>
+                <div class="demo-box">
+                    <p>Handle operations that take time:</p>
+                    <button class="btn" onclick="demonstrateAsync()">Simulate Async Operation</button>
+                    <div id="asyncResult"></div>
+                </div>
+            </div>
+
+            <!-- Form Elements -->
+            <div class="section">
+                <h2>11. Form Elements and Validation</h2>
+                <div class="demo-box">
+                    <p>JavaScript can handle form inputs, validation, and submission:</p>
+                    
+                    <form id="demoForm" onsubmit="handleFormSubmit(event)">
+                        <div class="input-group">
+                            <label for="fullName">Full Name:</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="age">Age:</label>
+                            <input type="number" id="age" name="age" min="1" max="120">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="country">Country:</label>
+                            <select id="country" name="country">
+                                <option value="">Select a country</option>
+                                <option value="us">United States</option>
+                                <option value="uk">United Kingdom</option>
+                                <option value="ca">Canada</option>
+                                <option value="au">Australia</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>Interests:</label>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="interests" value="coding"> Coding</label>
+                                <label><input type="checkbox" name="interests" value="reading"> Reading</label>
+                                <label><input type="checkbox" name="interests" value="gaming"> Gaming</label>
+                                <label><input type="checkbox" name="interests" value="sports"> Sports</label>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>Experience Level:</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="experience" value="beginner"> Beginner</label>
+                                <label><input type="radio" name="experience" value="intermediate"> Intermediate</label>
+                                <label><input type="radio" name="experience" value="advanced"> Advanced</label>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="bio">Bio:</label>
+                            <textarea id="bio" name="bio" rows="3" placeholder="Tell us about yourself..."></textarea>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="website">Website:</label>
+                            <input type="url" id="website" name="website" placeholder="https://example.com">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="birthdate">Birth Date:</label>
+                            <input type="date" id="birthdate" name="birthdate">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="favoriteColor">Favorite Color:</label>
+                            <input type="color" id="favoriteColor" name="favoriteColor">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="fileUpload">Profile Picture:</label>
+                            <input type="file" id="fileUpload" name="fileUpload" accept="image/*">
+                        </div>
+                        
+                        <div class="form-buttons">
+                            <button type="submit" class="btn">Submit Form</button>
+                            <button type="button" class="btn" onclick="resetForm()">Reset Form</button>
+                            <button type="button" class="btn" onclick="validateForm()">Validate Form</button>
+                            <button type="button" class="btn" onclick="showFormData()">Show Form Data</button>
+                        </div>
+                    </form>
+                    
+                    <div id="formResult"></div>
+                    <div id="formDataDisplay"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ========================================
+        // 1. VARIABLES AND DATA TYPES DEMONSTRATION
+        // ========================================
+        // This function demonstrates the different data types in JavaScript
+        // and shows how to use the typeof operator to check data types
+        function showDataTypes() {
+            // Declaring variables of different data types
+            let name = "John Doe";                    // String: text data
+            let age = 25;                             // Number: numeric data
+            let isStudent = true;                     // Boolean: true/false value
+            let hobbies = ["coding", "reading", "gaming"]; // Array: ordered collection
+            let person = {name: "Jane", age: 30, city: "New York"}; // Object: key-value pairs
+            let undefinedVar;                         // Undefined: declared but not assigned
+            let nullVar = null;                       // Null: intentional absence of value
+
+            // Create HTML result showing each data type and its typeof result
+            let result = `
+                <div class="highlight">
+                    <strong>Data Types Demo:</strong><br>
+                    String: "${name}" (type: ${typeof name})<br>
+                    Number: ${age} (type: ${typeof age})<br>
+                    Boolean: ${isStudent} (type: ${typeof isStudent})<br>
+                    Array: [${hobbies.join(", ")}] (type: ${typeof hobbies})<br>
+                    Object: ${JSON.stringify(person)} (type: ${typeof person})<br>
+                    Undefined: ${undefinedVar} (type: ${typeof undefinedVar})<br>
+                    Null: ${nullVar} (type: ${typeof nullVar})
+                </div>
+            `;
+            // Display the result in the HTML
+            document.getElementById('dataTypesResult').innerHTML = result;
+        }
+
+        // 2. Functions
+        function demonstrateFunctions() {
+            const name = document.getElementById('functionInput').value || "Anonymous";
+            
+            // Function declaration
+            function greet(name) {
+                return "Hello, " + name + "!";
+            }
+
+            // Arrow function
+            const multiply = (a, b) => a * b;
+
+            // Function expression
+            const calculateArea = function(width, height) {
+                return width * height;
+            };
+
+            let result = `
+                <div class="success">
+                    <strong>Function Results:</strong><br>
+                    Greeting: ${greet(name)}<br>
+                    Multiplication (5 × 3): ${multiply(5, 3)}<br>
+                    Area (4 × 6): ${calculateArea(4, 6)} square units
+                </div>
+            `;
+            document.getElementById('functionResult').innerHTML = result;
+        }
+
+        // 3. Arrays
+        function demonstrateArrays() {
+            let fruits = ["apple", "banana", "orange"];
+            let result = `<div class="highlight"><strong>Original Array:</strong> [${fruits.join(", ")}]</div>`;
+            
+            // Push
+            fruits.push("grape");
+            result += `<div class="success">After push("grape"): [${fruits.join(", ")}]</div>`;
+            
+            // Unshift
+            fruits.unshift("mango");
+            result += `<div class="success">After unshift("mango"): [${fruits.join(", ")}]</div>`;
+            
+            // Pop
+            let popped = fruits.pop();
+            result += `<div class="success">After pop(): [${fruits.join(", ")}] (removed: ${popped})</div>`;
+            
+            // Shift
+            let shifted = fruits.shift();
+            result += `<div class="success">After shift(): [${fruits.join(", ")}] (removed: ${shifted})</div>`;
+
+            document.getElementById('arrayResult').innerHTML = result;
+            
+            // Display array items
+            let display = "";
+            fruits.forEach((fruit, index) => {
+                display += `<span class="array-item">${index}: ${fruit}</span>`;
+            });
+            document.getElementById('arrayDisplay').innerHTML = display;
+        }
+
+        // 4. Objects
+        function demonstrateObjects() {
+            let car = {
+                brand: "Toyota",
+                model: "Camry",
+                year: 2020,
+                color: "Silver",
+                start: function() {
+                    return "Vroom! " + this.brand + " " + this.model + " is starting!";
+                },
+                getInfo: function() {
+                    return `${this.year} ${this.brand} ${this.model} (${this.color})`;
+                }
+            };
+
+            let result = `
+                <div class="object-demo">
+                    <strong>Car Object Properties:</strong><br>
+                    <div class="object-property">Brand: ${car.brand}</div>
+                    <div class="object-property">Model: ${car.model}</div>
+                    <div class="object-property">Year: ${car.year}</div>
+                    <div class="object-property">Color: ${car.color}</div>
+                    <div class="object-property">Method call: ${car.start()}</div>
+                    <div class="object-property">Info: ${car.getInfo()}</div>
+                </div>
+            `;
+            document.getElementById('objectResult').innerHTML = result;
+        }
+
+        // 5. DOM Manipulation
+        function changeDOM() {
+            const input = document.getElementById('domInput').value;
+            const target = document.getElementById('domTarget');
+            if (input.trim()) {
+                target.innerHTML = input;
+                target.style.color = '#' + Math.floor(Math.random()*16777215).toString(16);
+            }
+        }
+
+        function addElement() {
+            const container = document.getElementById('elementContainer');
+            const newElement = document.createElement('div');
+            newElement.className = 'success';
+            newElement.innerHTML = `New element added at ${new Date().toLocaleTimeString()}`;
+            container.appendChild(newElement);
+        }
+
+        function removeElement() {
+            const container = document.getElementById('elementContainer');
+            if (container.lastChild) {
+                container.removeChild(container.lastChild);
+            }
+        }
+
+        // 6. Event Handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const eventBtn = document.getElementById('eventBtn');
+            const hoverBtn = document.getElementById('hoverBtn');
+            const eventInput = document.getElementById('eventInput');
+            const eventLog = document.getElementById('eventLog');
+
+            eventBtn.addEventListener('click', function() {
+                logEvent('Button clicked!');
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => this.style.transform = '', 100);
+            });
+
+            hoverBtn.addEventListener('mouseenter', function() {
+                logEvent('Mouse entered hover button');
+                this.style.background = '#5a67d8';
+            });
+
+            hoverBtn.addEventListener('mouseleave', function() {
+                logEvent('Mouse left hover button');
+                this.style.background = '#667eea';
+            });
+
+            eventInput.addEventListener('input', function() {
+                logEvent(`Input changed: "${this.value}"`);
+            });
+
+            eventInput.addEventListener('focus', function() {
+                logEvent('Input field focused');
+            });
+
+            eventInput.addEventListener('blur', function() {
+                logEvent('Input field lost focus');
+            });
+
+            function logEvent(message) {
+                const timestamp = new Date().toLocaleTimeString();
+                eventLog.innerHTML = `<strong>${timestamp}:</strong> ${message}`;
+            }
+        });
+
+        // 7. Conditional Statements
+        function checkAge() {
+            const age = parseInt(document.getElementById('ageInput').value);
+            let category, color;
+
+            if (age < 0) {
+                category = "Invalid age";
+                color = "error";
+            } else if (age < 13) {
+                category = "Child";
+                color = "success";
+            } else if (age < 20) {
+                category = "Teenager";
+                color = "highlight";
+            } else if (age < 65) {
+                category = "Adult";
+                color = "success";
+            } else {
+                category = "Senior";
+                color = "highlight";
+            }
+
+            document.getElementById('conditionalResult').innerHTML = 
+                `<div class="${color}">Age ${age}: You are a ${category}</div>`;
+        }
+
+        // 8. Loops
+        function demonstrateLoops() {
+            let result = '<div class="highlight"><strong>Loop Examples:</strong><br>';
+            
+            // For loop
+            result += '<strong>For loop (1-5):</strong> ';
+            for (let i = 1; i <= 5; i++) {
+                result += i + ' ';
+            }
+            result += '<br>';
+
+            // While loop
+            result += '<strong>While loop (countdown):</strong> ';
+            let count = 3;
+            while (count > 0) {
+                result += count + ' ';
+                count--;
+            }
+            result += '<br>';
+
+            // ForEach loop
+            const colors = ['red', 'green', 'blue'];
+            result += '<strong>ForEach loop (colors):</strong> ';
+            colors.forEach(color => {
+                result += `<span style="color: ${color}">${color}</span> `;
+            });
+            result += '<br>';
+
+            // Map
+            const numbers = [1, 2, 3, 4, 5];
+            const doubled = numbers.map(num => num * 2);
+            result += `<strong>Map (doubled numbers):</strong> [${doubled.join(', ')}]<br>`;
+
+            // Filter
+            const evenNumbers = numbers.filter(num => num % 2 === 0);
+            result += `<strong>Filter (even numbers):</strong> [${evenNumbers.join(', ')}]</div>`;
+
+            document.getElementById('loopResult').innerHTML = result;
+        }
+
+        // 9. Error Handling
+        function demonstrateErrorHandling() {
+            let result = '<div class="highlight"><strong>Error Handling Examples:</strong><br>';
+
+            // Try-catch with intentional error
+            try {
+                const result = 10 / 0;
+                if (!isFinite(result)) {
+                    throw new Error("Division by zero detected!");
+                }
+            } catch (error) {
+                result += `<div class="error">Caught error: ${error.message}</div>`;
+            }
+
+            // Try-catch with JSON parsing
+            try {
+                const invalidJSON = '{name: "John"}'; // Missing quotes
+                const parsed = JSON.parse(invalidJSON);
+            } catch (error) {
+                result += `<div class="error">JSON parsing error: ${error.message}</div>`;
+            }
+
+            // Successful operation
+            try {
+                const validJSON = '{"name": "John", "age": 30}';
+                const parsed = JSON.parse(validJSON);
+                result += `<div class="success">Successfully parsed: ${parsed.name} is ${parsed.age} years old</div>`;
+            } catch (error) {
+                result += `<div class="error">Unexpected error: ${error.message}</div>`;
+            }
+
+            result += '</div>';
+            document.getElementById('errorResult').innerHTML = result;
+        }
+
+        // 10. Asynchronous JavaScript
+        function demonstrateAsync() {
+            const resultDiv = document.getElementById('asyncResult');
+            resultDiv.innerHTML = '<div class="highlight">Starting async operation...</div>';
+
+            // Simulate async operation with setTimeout
+            setTimeout(() => {
+                resultDiv.innerHTML = '<div class="success">Async operation completed after 2 seconds!</div>';
+            }, 2000);
+
+            // Promise example
+            const promise = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const random = Math.random();
+                    if (random > 0.5) {
+                        resolve(`Success! Random number: ${random.toFixed(3)}`);
+                    } else {
+                        reject(`Failed! Random number: ${random.toFixed(3)}`);
+                    }
+                }, 1000);
+            });
+
+            promise
+                .then(result => {
+                    resultDiv.innerHTML += `<div class="success">Promise resolved: ${result}</div>`;
+                })
+                .catch(error => {
+                    resultDiv.innerHTML += `<div class="error">Promise rejected: ${error}</div>`;
+                });
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('JavaScript Fundamentals page loaded successfully!');
+            
+            // Add file upload preview functionality
+            const fileUpload = document.getElementById('fileUpload');
+            if (fileUpload) {
+                fileUpload.addEventListener('change', handleFileUpload);
+            }
+        });
+
+        // 11. Form Elements and Validation
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const formObject = {};
+            
+            // Convert FormData to object
+            for (let [key, value] of formData.entries()) {
+                if (formObject[key]) {
+                    if (Array.isArray(formObject[key])) {
+                        formObject[key].push(value);
+                    } else {
+                        formObject[key] = [formObject[key], value];
+                    }
+                } else {
+                    formObject[key] = value;
+                }
+            }
+            
+            // Validate form
+            const validationResult = validateFormData(formObject);
+            
+            if (validationResult.isValid) {
+                document.getElementById('formResult').innerHTML = 
+                    '<div class="success">✅ Form submitted successfully!</div>';
+                
+                // Simulate sending data to server
+                setTimeout(() => {
+                    document.getElementById('formResult').innerHTML += 
+                        '<div class="highlight">📤 Data would be sent to server in a real application</div>';
+                }, 1000);
+            } else {
+                document.getElementById('formResult').innerHTML = 
+                    '<div class="error">❌ Form validation failed. Please check the errors above.</div>';
+            }
+        }
+
+        function validateForm() {
+            const form = document.getElementById('demoForm');
+            const formData = new FormData(form);
+            const formObject = {};
+            
+            // Convert FormData to object
+            for (let [key, value] of formData.entries()) {
+                if (formObject[key]) {
+                    if (Array.isArray(formObject[key])) {
+                        formObject[key].push(value);
+                    } else {
+                        formObject[key] = [formObject[key], value];
+                    }
+                } else {
+                    formObject[key] = value;
+                }
+            }
+            
+            const validationResult = validateFormData(formObject);
+            displayValidationResults(validationResult);
+        }
+
+        function validateFormData(data) {
+            const errors = [];
+            const warnings = [];
+            
+            // Required field validation
+            if (!data.fullName || data.fullName.trim().length < 2) {
+                errors.push('Full name is required and must be at least 2 characters long');
+            }
+            
+            if (!data.email) {
+                errors.push('Email is required');
+            } else if (!isValidEmail(data.email)) {
+                errors.push('Please enter a valid email address');
+            }
+            
+            // Age validation
+            if (data.age) {
+                const age = parseInt(data.age);
+                if (age < 1 || age > 120) {
+                    errors.push('Age must be between 1 and 120');
+                }
+            }
+            
+            // Website validation
+            if (data.website && !isValidUrl(data.website)) {
+                errors.push('Please enter a valid website URL');
+            }
+            
+            // Experience level validation
+            if (!data.experience) {
+                warnings.push('Experience level is recommended');
+            }
+            
+            // Interests validation
+            if (!data.interests || (Array.isArray(data.interests) && data.interests.length === 0)) {
+                warnings.push('Selecting interests is recommended');
+            }
+            
+            return {
+                isValid: errors.length === 0,
+                errors: errors,
+                warnings: warnings
+            };
+        }
+
+        function displayValidationResults(validationResult) {
+            let resultHTML = '<div class="highlight"><strong>Validation Results:</strong><br>';
+            
+            if (validationResult.errors.length > 0) {
+                resultHTML += '<div class="validation-error"><strong>Errors:</strong><br>';
+                validationResult.errors.forEach(error => {
+                    resultHTML += `• ${error}<br>`;
+                });
+                resultHTML += '</div>';
+            }
+            
+            if (validationResult.warnings.length > 0) {
+                resultHTML += '<div class="validation-success"><strong>Warnings:</strong><br>';
+                validationResult.warnings.forEach(warning => {
+                    resultHTML += `• ${warning}<br>`;
+                });
+                resultHTML += '</div>';
+            }
+            
+            if (validationResult.errors.length === 0 && validationResult.warnings.length === 0) {
+                resultHTML += '<div class="validation-success">✅ All validations passed!</div>';
+            }
+            
+            resultHTML += '</div>';
+            document.getElementById('formResult').innerHTML = resultHTML;
+        }
+
+        function showFormData() {
+            const form = document.getElementById('demoForm');
+            const formData = new FormData(form);
+            const formObject = {};
+            
+            // Convert FormData to object
+            for (let [key, value] of formData.entries()) {
+                if (formObject[key]) {
+                    if (Array.isArray(formObject[key])) {
+                        formObject[key].push(value);
+                    } else {
+                        formObject[key] = [formObject[key], value];
+                    }
+                } else {
+                    formObject[key] = value;
+                }
+            }
+            
+            const displayData = JSON.stringify(formObject, null, 2);
+            document.getElementById('formDataDisplay').innerHTML = 
+                `<div class="form-data-display"><strong>Form Data (JSON):</strong><br>${displayData}</div>`;
+        }
+
+        function resetForm() {
+            const form = document.getElementById('demoForm');
+            form.reset();
+            document.getElementById('formResult').innerHTML = '';
+            document.getElementById('formDataDisplay').innerHTML = '';
+            
+            // Clear file preview
+            const filePreview = document.querySelector('.file-preview');
+            if (filePreview) {
+                filePreview.remove();
+            }
+        }
+
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    // Remove existing preview
+                    const existingPreview = document.querySelector('.file-preview');
+                    if (existingPreview) {
+                        existingPreview.remove();
+                    }
+                    
+                    // Create new preview
+                    const preview = document.createElement('div');
+                    preview.className = 'file-preview';
+                    preview.innerHTML = `
+                        <strong>File Preview:</strong><br>
+                        <strong>Name:</strong> ${file.name}<br>
+                        <strong>Size:</strong> ${(file.size / 1024).toFixed(2)} KB<br>
+                        <strong>Type:</strong> ${file.type}<br>
+                        <img src="${e.target.result}" alt="File preview">
+                    `;
+                    
+                    event.target.parentNode.appendChild(preview);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Utility functions
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function isValidUrl(url) {
+            try {
+                new URL(url);
+                return true;
+            } catch {
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
