@@ -1,0 +1,2 @@
+Personal Portfolio Page - 
+Create a professional single-page portfolio website that showcases your skills, projects, and personality using modern HTML5 semantic elements and CSS styling.
